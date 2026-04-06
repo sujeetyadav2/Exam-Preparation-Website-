@@ -1,0 +1,2768 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MP Police SI/ASI Exam Preparation Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#0a0a0a;color:#f5f0e8;font-family:'Rajdhani',sans-serif;line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* ===== CSS VARIABLES ===== */
+:root{
+  --gold:#C9A84C;
+  --gold-l:#E8C97A;
+  --gold-d:#A07830;
+  --gold-glow:rgba(201,168,76,0.3);
+  --black:#0a0a0a;
+  --b2:#111111;
+  --b3:#1a1a1a;
+  --b4:#222222;
+  --b5:#2c2c2c;
+  --white:#f5f0e8;
+  --wd:rgba(245,240,232,0.7);
+  --wf:rgba(245,240,232,0.15);
+  --border:1px solid rgba(201,168,76,0.25);
+  --shadow:0 4px 24px rgba(201,168,76,0.15);
+  --tr:all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#0a0a0a}
+::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.4);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+::selection{background:rgba(201,168,76,0.3);color:#fff}
+
+/* ===== CONTAINER ===== */
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+
+/* ===== NAVBAR ===== */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(10,10,10,0.96);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(201,168,76,0.2);
+  transition:var(--tr);
+}
+.navbar.scrolled{border-bottom-color:var(--gold);box-shadow:0 2px 20px rgba(201,168,76,0.1)}
+.nav-container{
+  max-width:1280px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;height:68px;
+}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.logo-icon{font-size:28px;filter:drop-shadow(0 0 8px var(--gold))}
+.logo-text{display:flex;flex-direction:column}
+.logo-main{
+  font-family:'Cinzel',serif;font-size:15px;font-weight:700;
+  color:var(--gold);letter-spacing:3px;line-height:1;
+}
+.logo-sub{font-size:10px;color:var(--wd);letter-spacing:1.5px;text-transform:uppercase}
+.nav-menu{display:flex;align-items:center;gap:2px}
+.nav-link{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:12px;font-weight:500;color:var(--wd);
+  padding:8px 12px;border-radius:6px;
+  transition:var(--tr);white-space:nowrap;letter-spacing:0.3px;
+}
+.nav-link:hover{color:var(--gold);background:rgba(201,168,76,0.1)}
+.hamburger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:8px;
+}
+.hamburger span{
+  display:block;width:24px;height:2px;
+  background:var(--gold);border-radius:2px;transition:var(--tr);
+}
+
+/* ===== BUTTONS ===== */
+.btn-gold{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-l));
+  color:#0a0a0a;font-family:'Noto Sans Devanagari',sans-serif;
+  font-weight:700;font-size:14px;padding:13px 28px;
+  border-radius:8px;letter-spacing:0.5px;
+  transition:var(--tr);box-shadow:0 4px 20px rgba(201,168,76,0.3);
+  border:none;cursor:pointer;
+}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,168,76,0.5)}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:var(--gold);
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-weight:600;font-size:14px;padding:13px 28px;
+  border-radius:8px;letter-spacing:0.5px;
+  transition:var(--tr);border:1px solid rgba(201,168,76,0.5);
+  cursor:pointer;
+}
+.btn-outline:hover{background:rgba(201,168,76,0.1);border-color:var(--gold);transform:translateY(-2px)}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;padding:100px 24px 60px;text-align:center;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%,rgba(201,168,76,0.07) 0%,transparent 65%),
+    linear-gradient(180deg,#0a0a0a 0%,#111 50%,#0a0a0a 100%);
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,168,76,0.035) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.hero-content{position:relative;z-index:2;max-width:900px;margin:0 auto;animation:fadeUp 1s ease-out}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(201,168,76,0.08);
+  border:1px solid rgba(201,168,76,0.3);
+  padding:8px 20px;border-radius:50px;
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold-l);margin-bottom:28px;
+}
+.pulse-dot{
+  width:7px;height:7px;background:var(--gold);
+  border-radius:50%;animation:pulse 2s infinite;flex-shrink:0;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.5)}}
+
+.hero-title{margin-bottom:20px;line-height:1.1}
+.t1{
+  display:block;font-family:'Cinzel',serif;
+  font-size:clamp(32px,6vw,72px);font-weight:900;
+  color:var(--gold);letter-spacing:8px;
+  text-shadow:0 0 40px rgba(201,168,76,0.35);
+}
+.t2{
+  display:block;font-family:'Cinzel',serif;
+  font-size:clamp(44px,9vw,110px);font-weight:900;
+  background:linear-gradient(135deg,var(--gold-l),var(--gold),var(--gold-d));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;letter-spacing:5px;
+}
+.t3{
+  display:block;font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:clamp(18px,3vw,34px);font-weight:600;
+  color:var(--wd);letter-spacing:2px;margin-top:8px;
+}
+.hero-sub{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:clamp(13px,1.8vw,17px);color:var(--wd);
+  margin-bottom:40px;max-width:680px;margin-left:auto;margin-right:auto;
+  line-height:1.8;
+}
+.hero-stats{
+  display:inline-flex;align-items:center;
+  background:rgba(201,168,76,0.05);
+  border:var(--border);border-radius:16px;
+  padding:18px 36px;margin-bottom:40px;gap:0;
+}
+.stat{text-align:center;padding:0 28px}
+.sn{display:block;font-family:'Cinzel',serif;font-size:30px;font-weight:700;color:var(--gold)}
+.sl{font-family:'Noto Sans Devanagari',sans-serif;font-size:11px;color:var(--wd);letter-spacing:0.5px}
+.sdiv{width:1px;height:36px;background:rgba(201,168,76,0.25);flex-shrink:0}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ===== EXAM BANNER ===== */
+.exam-banner{
+  background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04));
+  border-top:1px solid rgba(201,168,76,0.3);
+  border-bottom:1px solid rgba(201,168,76,0.3);
+  padding:24px 0;
+}
+.banner-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:16px;max-width:1280px;margin:0 auto;padding:0 24px;
+}
+.bitem{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 16px;border-radius:10px;
+  background:rgba(201,168,76,0.05);
+  border:1px solid rgba(201,168,76,0.1);
+  transition:var(--tr);
+}
+.bitem:hover{background:rgba(201,168,76,0.1);border-color:rgba(201,168,76,0.3)}
+.bitem>span{font-size:24px;filter:drop-shadow(0 0 5px var(--gold));flex-shrink:0}
+.bitem div{display:flex;flex-direction:column}
+.bitem b{font-family:'Cinzel',serif;font-size:12px;color:var(--gold);letter-spacing:0.5px}
+.bitem small{font-family:'Noto Sans Devanagari',sans-serif;font-size:11px;color:var(--wd)}
+
+/* ===== SECTIONS ===== */
+.section{padding:90px 0;background:var(--black)}
+.dark-sec{background:var(--b2)}
+.sec-head{text-align:center;margin-bottom:56px}
+.sec-tag{
+  display:inline-block;font-family:'Cinzel',serif;
+  font-size:10px;letter-spacing:4px;color:var(--gold);
+  background:rgba(201,168,76,0.08);
+  border:1px solid rgba(201,168,76,0.25);
+  padding:6px 18px;border-radius:50px;margin-bottom:14px;
+}
+.sec-head h2{
+  font-family:'Cinzel',serif;
+  font-size:clamp(26px,4vw,44px);font-weight:700;
+  color:var(--gold);letter-spacing:2px;margin-bottom:10px;
+}
+.sec-head p{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:15px;color:var(--wd);
+}
+
+/* ===== ABOUT GRID ===== */
+.about-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;
+}
+.about-card{
+  background:var(--b3);border:var(--border);
+  border-radius:16px;padding:28px;
+  transition:var(--tr);
+}
+.about-card:hover{border-color:rgba(201,168,76,0.5);box-shadow:var(--shadow);transform:translateY(-3px)}
+.about-card h3{
+  font-family:'Cinzel',serif;font-size:15px;color:var(--gold);
+  letter-spacing:1px;margin-bottom:18px;
+  padding-bottom:12px;border-bottom:1px solid rgba(201,168,76,0.15);
+}
+
+/* EXAM TABLE */
+.etable{width:100%;border-collapse:collapse}
+.etable th{
+  font-family:'Cinzel',serif;font-size:11px;letter-spacing:1px;
+  color:#0a0a0a;background:linear-gradient(135deg,var(--gold-d),var(--gold));
+  padding:10px 14px;text-align:left;
+}
+.etable td{
+  font-family:'Noto Sans Devanagari',sans-serif;font-size:13px;
+  color:var(--wd);padding:10px 14px;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.etable tr:hover td{background:rgba(201,168,76,0.05);color:var(--white)}
+.total-row td{
+  background:rgba(201,168,76,0.08)!important;
+  color:var(--gold)!important;font-weight:700;
+}
+
+/* ELIGIBILITY LIST */
+.elist{padding:0}
+.elist li{
+  font-family:'Noto Sans Devanagari',sans-serif;font-size:13px;
+  color:var(--wd);padding:9px 0;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  display:flex;align-items:flex-start;gap:8px;
+}
+.elist li::before{content:'✦';color:var(--gold);font-size:10px;flex-shrink:0;margin-top:3px}
+.elist li b{color:var(--gold-l);margin-right:4px}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column;gap:12px}
+.step{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:12px;background:rgba(201,168,76,0.04);
+  border:1px solid rgba(201,168,76,0.1);border-radius:10px;
+  transition:var(--tr);
+}
+.step:hover{background:rgba(201,168,76,0.08);border-color:rgba(201,168,76,0.3)}
+.snum{
+  width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold-d),var(--gold));
+  color:#0a0a0a;font-family:'Cinzel',serif;font-size:12px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.step b{font-family:'Cinzel',serif;font-size:13px;color:var(--gold-l);display:block;margin-bottom:2px}
+.step p{font-family:'Noto Sans Devanagari',sans-serif;font-size:12px;color:var(--wd)}
+
+/* ===== SUBJECTS GRID ===== */
+.subjects-grid{display:flex;flex-direction:column;gap:16px}
+
+.subj-card{
+  background:var(--b3);border:var(--border);
+  border-radius:16px;overflow:hidden;
+  transition:var(--tr);cursor:pointer;
+}
+.subj-card:hover{border-color:rgba(201,168,76,0.45);box-shadow:var(--shadow)}
+.subj-card.featured{border-color:rgba(201,168,76,0.35)}
+.subj-card.featured .sc-header{background:rgba(201,168,76,0.04)}
+
+.sc-header{
+  display:flex;align-items:center;gap:16px;
+  padding:20px 24px;transition:var(--tr);
+}
+.sc-header:hover{background:rgba(201,168,76,0.05)}
+.sc-icon{font-size:32px;filter:drop-shadow(0 0 6px rgba(201,168,76,0.25));flex-shrink:0}
+.sc-header>div:nth-child(2){flex:1}
+.sc-header h3{
+  font-family:'Cinzel',serif;font-size:16px;
+  color:var(--gold-l);letter-spacing:1px;margin-bottom:3px;
+}
+.sc-header p{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:12px;color:var(--wd);
+}
+.sc-tags{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto;margin-right:16px}
+.sc-arrow{
+  font-size:14px;color:var(--gold);
+  transition:var(--tr);flex-shrink:0;
+  width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+  background:rgba(201,168,76,0.1);border-radius:50%;
+}
+.sc-arrow.open{transform:rotate(180deg)}
+
+/* SUBJECT BODY */
+.sc-body{
+  display:none;padding:0 24px 24px;
+  border-top:1px solid rgba(201,168,76,0.1);
+  animation:fadeIn 0.3s ease;
+}
+.sc-body.open{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+
+/* TOPIC ITEMS */
+.topic-item{
+  background:rgba(0,0,0,0.25);border:1px solid rgba(201,168,76,0.08);
+  border-radius:10px;padding:16px 18px;margin-top:12px;
+  transition:var(--tr);
+}
+.topic-item:hover{border-color:rgba(201,168,76,0.25);background:rgba(201,168,76,0.03)}
+.ti-head{
+  font-family:'Noto Sans Devanagari',sans-serif;font-size:14px;
+  font-weight:700;color:var(--white);margin-bottom:8px;
+}
+.ti-sub{
+  font-family:'Noto Sans Devanagari',sans-serif;font-size:12.5px;
+  color:var(--wd);line-height:1.8;margin-bottom:10px;
+}
+.ti-tags{display:flex;gap:6px;flex-wrap:wrap}
+
+/* ===== EXAM TAGS ===== */
+.t{font-size:10px;font-weight:700;padding:3px 9px;border-radius:4px;letter-spacing:0.5px;font-family:'Cinzel',serif}
+.t.si{background:rgba(201,168,76,0.18);color:var(--gold);border:1px solid rgba(201,168,76,0.35)}
+.t.asi{background:rgba(39,174,96,0.12);color:#5dbd7a;border:1px solid rgba(39,174,96,0.25)}
+.t.upsc{background:rgba(41,128,185,0.12);color:#5ab3e8;border:1px solid rgba(41,128,185,0.25)}
+.t.mppsc{background:rgba(142,68,173,0.12);color:#c39bd3;border:1px solid rgba(142,68,173,0.25)}
+.t.ssc{background:rgba(192,57,43,0.12);color:#e57373;border:1px solid rgba(192,57,43,0.25)}
+
+/* ===== TOP 100 REPEATED TOPICS ===== */
+#repeated{padding:90px 0;background:var(--black)}
+
+.filter-row{
+  display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;
+  padding:20px;background:var(--b3);border-radius:12px;border:var(--border);
+}
+.fbtn{
+  font-family:'Noto Sans Devanagari',sans-serif;font-size:12px;
+  padding:8px 18px;border-radius:6px;cursor:pointer;
+  border:1px solid rgba(201,168,76,0.2);background:none;
+  color:var(--wd);transition:var(--tr);
+}
+.fbtn:hover,.fbtn.active{
+  background:rgba(201,168,76,0.15);color:var(--gold);
+  border-color:var(--gold);
+}
+
+.top100-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;
+}
+.tcard{
+  display:flex;align-items:flex-start;gap:14px;
+  background:var(--b3);border:1px solid rgba(201,168,76,0.1);
+  border-radius:12px;padding:15px 18px;transition:var(--tr);
+}
+.tcard:hover{border-color:rgba(201,168,76,0.35);background:var(--b4)}
+.tcard.top10{border-color:rgba(201,168,76,0.25)}
+.trank{
+  font-family:'Cinzel',serif;font-size:18px;font-weight:900;
+  color:rgba(201,168,76,0.22);min-width:34px;flex-shrink:0;line-height:1.2;
+}
+.tcard.top10 .trank{color:var(--gold)}
+.tinfo{flex:1}
+.tname{
+  font-family:'Noto Sans Devanagari',sans-serif;font-size:13.5px;
+  font-weight:700;color:var(--white);margin-bottom:3px;
+}
+.tsub{
+  font-family:'Noto Sans Devanagari',sans-serif;font-size:11.5px;
+  color:var(--wd);margin-bottom:7px;
+}
+.tmeta{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.stars{font-size:11px;letter-spacing:-1px}
+.stars.s5{color:var(--gold)}
+.stars.s4{color:#E8C97A88}
+.stars.s3{color:#E8C97A44}
+
+/* TOPIC RANK SECTION DIVIDER */
+.rank-div{
+  display:flex;align-items:center;gap:14px;
+  margin:40px 0 20px;
+}
+.rank-div span{
+  font-family:'Cinzel',serif;font-size:13px;
+  color:var(--gold);letter-spacing:2px;white-space:nowrap;
+  padding:6px 16px;background:rgba(201,168,76,0.08);
+  border:var(--border);border-radius:6px;
+}
+.rank-div::before,.rank-div::after{
+  content:'';flex:1;height:1px;
+  background:rgba(201,168,76,0.15);
+}
+
+/* ===== STRATEGY SECTION ===== */
+#strategy{padding:90px 0;background:var(--b2)}
+
+.strategy-tabs{
+  display:flex;gap:8px;margin-bottom:40px;
+  border-bottom:1px solid rgba(201,168,76,0.2);padding-bottom:0;
+  overflow-x:auto;
+}
+.stab{
+  font-family:'Cinzel',serif;font-size:12px;letter-spacing:1px;
+  padding:12px 24px;cursor:pointer;
+  border-bottom:2px solid transparent;color:var(--wd);
+  background:none;border-left:none;border-right:none;border-top:none;
+  transition:var(--tr);white-space:nowrap;
+}
+.stab:hover,.stab.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+.tab-content{display:none}
+.tab-content.active{display:block;animation:fadeIn 0.3s ease}
+
+.phase-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;
+}
+.phase-card{
+  background:var(--b3);border:var(--border);
+  border-radius:16px;padding:28px;
+  position:relative;overflow:hidden;transition:var(--tr);
+}
+.phase-card:hover{border-color:rgba(201,168,76,0.5);box-shadow:var(--shadow);transform:translateY(-3px)}
+.phase-num{
+  font-family:'Cinzel',serif;font-size:60px;font-weight:900;
+  color:rgba(201,168,76,0.06);position:absolute;
+  top:8px;right:12px;line-height:1;
+}
+.phase-icon{font-size:32px;margin-bottom:14px}
+.phase-card h3{
+  font-family:'Cinzel',serif;font-size:15px;
+  color:var(--gold);margin-bottom:8px;letter-spacing:1px;
+}
+.phase-card p{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:13px;color:var(--wd);line-height:1.7;margin-bottom:12px;
+}
+.phase-dur{
+  font-family:'Noto Sans Devanagari',sans-serif;font-size:11px;
+  color:var(--gold-l);background:rgba(201,168,76,0.1);
+  border:var(--border);padding:4px 14px;border-radius:50px;
+  display:inline-block;
+}
+
+/* PRIORITY TABLE */
+.priority-table{width:100%;border-collapse:collapse;margin-top:20px}
+.priority-table th{
+  font-family:'Cinzel',serif;font-size:11px;letter-spacing:1.5px;
+  background:linear-gradient(135deg,var(--gold-d),var(--gold));
+  color:#0a0a0a;padding:12px 16px;text-align:left;
+}
+.priority-table td{
+  font-family:'Noto Sans Devanagari',sans-serif;font-size:13px;
+  color:var(--wd);padding:12px 16px;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.priority-table tr:hover td{background:rgba(201,168,76,0.05);color:var(--white)}
+.pri{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:11px;font-weight:700;padding:3px 10px;
+  border-radius:4px;letter-spacing:0.5px;
+}
+.pri.h{background:rgba(201,168,76,0.2);color:var(--gold)}
+.pri.m{background:rgba(39,174,96,0.15);color:#5dbd7a}
+.pri.l{background:rgba(41,128,185,0.15);color:#5ab3e8}
+
+/* SCHEDULE TABLE */
+.schedule{
+  background:var(--b3);border-radius:16px;
+  border:var(--border);overflow:hidden;
+}
+.sch-row{
+  display:grid;grid-template-columns:100px 1fr 120px 100px;
+  gap:0;border-bottom:1px solid rgba(255,255,255,0.04);
+  transition:var(--tr);
+}
+.sch-row:last-child{border-bottom:none}
+.sch-row:hover{background:rgba(201,168,76,0.04)}
+.sch-row.head{background:linear-gradient(135deg,var(--gold-d),var(--gold))}
+.sch-row.head .sc{color:#0a0a0a;font-family:'Cinzel',serif;font-size:11px;letter-spacing:1px}
+.sc{
+  font-family:'Noto Sans Devanagari',sans-serif;font-size:13px;
+  color:var(--wd);padding:14px 18px;
+}
+
+/* ===== CONTACT SECTION ===== */
+#contact{padding:90px 0;background:var(--black)}
+.contact-wrap{
+  display:grid;grid-template-columns:1fr 1.5fr;gap:48px;
+  max-width:900px;margin:0 auto;
+}
+.contact-info h3{
+  font-family:'Cinzel',serif;font-size:22px;
+  color:var(--gold);letter-spacing:2px;margin-bottom:20px;
+}
+.contact-info p{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:14px;color:var(--wd);line-height:1.8;margin-bottom:24px;
+}
+.cinfo-list{display:flex;flex-direction:column;gap:14px}
+.ci{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 18px;background:var(--b3);
+  border:var(--border);border-radius:10px;
+}
+.ci span:first-child{font-size:20px;flex-shrink:0}
+.ci div b{
+  font-family:'Cinzel',serif;font-size:12px;
+  color:var(--gold);display:block;margin-bottom:2px;
+}
+.ci div p{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:12px;color:var(--wd);margin:0;
+}
+
+/* CONTACT FORM */
+.cform{background:var(--b3);border:var(--border);border-radius:16px;padding:32px}
+.cform h3{
+  font-family:'Cinzel',serif;font-size:18px;
+  color:var(--gold);letter-spacing:1px;margin-bottom:24px;
+}
+.fgroup{margin-bottom:18px}
+.fgroup label{
+  display:block;font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:12px;color:var(--gold-l);margin-bottom:7px;letter-spacing:0.5px;
+}
+.fgroup input,.fgroup textarea,.fgroup select{
+  width:100%;background:rgba(0,0,0,0.4);
+  border:1px solid rgba(201,168,76,0.2);border-radius:8px;
+  padding:12px 16px;color:var(--white);
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:13px;transition:var(--tr);outline:none;
+}
+.fgroup input:focus,.fgroup textarea:focus,.fgroup select:focus{
+  border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.1);
+}
+.fgroup select option{background:var(--b3)}
+.fgroup textarea{resize:vertical;min-height:120px}
+
+/* ===== FOOTER ===== */
+.footer{
+  background:var(--b2);border-top:1px solid rgba(201,168,76,0.2);
+  padding:56px 0 28px;
+}
+.footer-grid{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:48px;margin-bottom:48px;
+}
+.flogo{
+  font-family:'Cinzel',serif;font-size:16px;
+  color:var(--gold);margin-bottom:14px;letter-spacing:2px;
+}
+.footer-brand p{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:13px;color:var(--wd);line-height:1.8;
+}
+.flinks h4{
+  font-family:'Cinzel',serif;font-size:12px;
+  color:var(--gold);letter-spacing:2px;margin-bottom:16px;
+}
+.flinks ul li{margin-bottom:9px}
+.flinks ul li a{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:13px;color:var(--wd);transition:var(--tr);
+}
+.flinks ul li a:hover{color:var(--gold);padding-left:4px}
+.footer-bottom{
+  border-top:1px solid rgba(201,168,76,0.1);
+  padding-top:24px;text-align:center;
+}
+.footer-bottom p{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:11px;color:rgba(245,240,232,0.35);margin-bottom:5px;
+}
+
+/* ===== HIGHLIGHT BOX ===== */
+.hbox{
+  background:rgba(201,168,76,0.05);
+  border:var(--border);border-left:4px solid var(--gold);
+  border-radius:8px;padding:18px 22px;margin:16px 0;
+}
+.hbox h4{
+  font-family:'Cinzel',serif;font-size:13px;
+  color:var(--gold);margin-bottom:7px;letter-spacing:0.5px;
+}
+.hbox p,.hbox ul{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:13px;color:var(--wd);line-height:1.7;
+}
+.hbox ul{padding-left:18px;list-style:disc}
+.hbox ul li{margin-bottom:5px}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1100px){
+  .banner-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-menu{
+    display:none;position:fixed;
+    top:68px;left:0;right:0;
+    background:rgba(10,10,10,0.98);
+    backdrop-filter:blur(20px);
+    flex-direction:column;padding:16px;
+    border-bottom:1px solid rgba(201,168,76,0.2);
+    gap:4px;z-index:999;
+  }
+  .nav-menu.open{display:flex}
+  .nav-link{width:100%;text-align:center;padding:13px}
+  .hero-stats{padding:14px 16px;flex-wrap:wrap;gap:12px}
+  .stat{padding:0 12px}
+  .sdiv{display:none}
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn-gold,.btn-outline{width:100%;max-width:280px;justify-content:center}
+  .banner-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr}
+  .contact-wrap{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .sc-header{flex-wrap:wrap;gap:12px}
+  .sc-tags{margin-left:0;margin-right:0}
+  .top100-grid{grid-template-columns:1fr}
+  .sch-row{grid-template-columns:80px 1fr;grid-template-rows:auto auto}
+  .sch-row .sc:nth-child(3),.sch-row .sc:nth-child(4){display:none}
+  .sch-row.head .sc:nth-child(3),.sch-row.head .sc:nth-child(4){display:none}
+  .strategy-tabs{gap:4px}
+  .stab{padding:10px 14px;font-size:11px}
+}
+@media(max-width:480px){
+  .banner-grid{grid-template-columns:1fr}
+  .hero-stats{width:100%;justify-content:center}
+  .phase-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <span class="logo-icon">🛡️</span>
+      <div class="logo-text">
+        <span class="logo-main">MP POLICE</span>
+        <span class="logo-sub">SI / ASI Exam Portal</span>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="#home" class="nav-link">🏠 होम</a></li>
+      <li><a href="#about" class="nav-link">📋 परीक्षा जानकारी</a></li>
+      <li><a href="#syllabus" class="nav-link">📚 पाठ्यक्रम</a></li>
+      <li><a href="#subjects" class="nav-link">📖 विषयवार</a></li>
+      <li><a href="#repeated" class="nav-link">🔥 Top 100 Topics</a></li>
+      <li><a href="#strategy" class="nav-link">🎯 रणनीति</a></li>
+      <li><a href="#contact" class="nav-link">📞 संपर्क</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="pulse-dot"></span>
+      2024-25 Complete Exam Preparation
+    </div>
+    <h1 class="hero-title">
+      <span class="t1">MP POLICE</span>
+      <span class="t2">SI / ASI</span>
+      <span class="t3">परीक्षा तैयारी पोर्टल</span>
+    </h1>
+    <p class="hero-sub">Complete A to Z Syllabus • 100 Most Repeated Topics • Subject-wise Study Material • Previous Year Analysis</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="sn">13</span><span class="sl">विषय</span></div>
+      <div class="sdiv"></div>
+      <div class="stat"><span class="sn">100+</span><span class="sl">Repeated Topics</span></div>
+      <div class="sdiv"></div>
+      <div class="stat"><span class="sn">500+</span><span class="sl">उपटॉपिक</span></div>
+      <div class="sdiv"></div>
+      <div class="stat"><span class="sn">5</span><span class="sl">परीक्षाएं</span></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#syllabus" class="btn-gold">📚 पाठ्यक्रम देखें</a>
+      <a href="#repeated" class="btn-outline">🔥 Top 100 Topics</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXAM INFO BANNER ===== -->
+<section class="exam-banner">
+  <div class="container">
+    <div class="banner-grid">
+      <div class="bitem"><span>📋</span><div><b>MP Police SI</b><small>Sub-Inspector Exam</small></div></div>
+      <div class="bitem"><span>🎯</span><div><b>MP Police ASI</b><small>Asst. Sub-Inspector</small></div></div>
+      <div class="bitem"><span>📝</span><div><b>200 प्रश्न</b><small>Written Examination</small></div></div>
+      <div class="bitem"><span>⏱️</span><div><b>2 घंटे</b><small>परीक्षा अवधि</small></div></div>
+      <div class="bitem"><span>❌</span><div><b>1/4 Negative</b><small>नकारात्मक अंकन</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT EXAM SECTION ===== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-tag">EXAM DETAILS</span>
+      <h2>परीक्षा जानकारी</h2>
+      <p>MP Police SI/ASI परीक्षा का पूर्ण विवरण</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>🎖️ SI परीक्षा पैटर्न</h3>
+        <table class="etable">
+          <tr><th>विषय</th><th>प्रश्न</th><th>अंक</th></tr>
+          <tr><td>सामान्य ज्ञान</td><td>40</td><td>40</td></tr>
+          <tr><td>सामान्य विज्ञान</td><td>20</td><td>20</td></tr>
+          <tr><td>MP सामान्य ज्ञान</td><td>30</td><td>30</td></tr>
+          <tr><td>तर्कशक्ति</td><td>30</td><td>30</td></tr>
+          <tr><td>हिंदी</td><td>30</td><td>30</td></tr>
+          <tr><td>गणित</td><td>30</td><td>30</td></tr>
+          <tr><td>अंग्रेजी</td><td>20</td><td>20</td></tr>
+          <tr class="total-row"><td><b>कुल</b></td><td><b>200</b></td><td><b>200</b></td></tr>
+        </table>
+      </div>
+
+      <div class="about-card">
+        <h3>🎖️ ASI परीक्षा पैटर्न</h3>
+        <table class="etable">
+          <tr><th>विषय</th><th>प्रश्न</th><th>अंक</th></tr>
+          <tr><td>सामान्य ज्ञान</td><td>40</td><td>40</td></tr>
+          <tr><td>MP सामान्य ज्ञान</td><td>30</td><td>30</td></tr>
+          <tr><td>तर्कशक्ति</td><td>30</td><td>30</td></tr>
+          <tr><td>हिंदी</td><td>40</td><td>40</td></tr>
+          <tr><td>गणित</td><td>30</td><td>30</td></tr>
+          <tr><td>कम्प्यूटर</td><td>30</td><td>30</td></tr>
+          <tr class="total-row"><td><b>कुल</b></td><td><b>200</b></td><td><b>200</b></td></tr>
+        </table>
+      </div>
+
+      <div class="about-card">
+        <h3>✅ पात्रता मानदंड</h3>
+        <ul class="elist">
+          <li><b>SI योग्यता:</b> स्नातक (Graduate)</li>
+          <li><b>ASI योग्यता:</b> 12वीं पास</li>
+          <li><b>आयु (सामान्य):</b> 18–25 वर्ष</li>
+          <li><b>SC/ST/OBC:</b> आयु में छूट</li>
+          <li><b>ऊंचाई (पुरुष):</b> 167.5 cm</li>
+          <li><b>ऊंचाई (महिला):</b> 152.4 cm</li>
+          <li><b>छाती (पुरुष):</b> 81–86 cm</li>
+          <li><b>नागरिकता:</b> भारतीय</li>
+        </ul>
+      </div>
+
+      <div class="about-card">
+        <h3>🔄 चयन प्रक्रिया</h3>
+        <div class="steps">
+          <div class="step"><span class="snum">1</span><div><b>लिखित परीक्षा</b><p>200 प्रश्न, MCQ, 1/4 Negative</p></div></div>
+          <div class="step"><span class="snum">2</span><div><b>शारीरिक दक्षता</b><p>दौड़, Jump – Qualifying</p></div></div>
+          <div class="step"><span class="snum">3</span><div><b>शारीरिक मापदंड</b><p>ऊंचाई, छाती, वजन</p></div></div>
+          <div class="step"><span class="snum">4</span><div><b>चिकित्सा परीक्षण</b><p>Health Check-up</p></div></div>
+          <div class="step"><span class="snum">5</span><div><b>दस्तावेज़ सत्यापन</b><p>Certificate Verification</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPLETE SYLLABUS SECTION ===== -->
+<section class="section dark-sec" id="syllabus">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-tag">COMPLETE SYLLABUS</span>
+      <h2>सम्पूर्ण पाठ्यक्रम</h2>
+      <p>सभी विषयों का A to Z पाठ्यक्रम</p>
+    </div>
+
+    <!-- SUBJECT CARDS GRID -->
+    <div class="subjects-grid">
+      <div class="subj-card" onclick="toggleSubject('polity')">
+        <div class="sc-header">
+          <span class="sc-icon">⚖️</span>
+          <div><h3>Indian Polity</h3><p>भारतीय राजव्यवस्था</p></div>
+          <div class="sc-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t upsc">UPSC</span></div>
+          <span class="sc-arrow" id="arr-polity">▼</span>
+        </div>
+        <div class="sc-body" id="polity">
+          <div class="topic-item">
+            <div class="ti-head">📌 भारतीय संविधान – परिचय</div>
+            <div class="ti-sub">• संविधान सभा और निर्माण • प्रस्तावना (Preamble) • 12 अनुसूचियां • भाग और अनुच्छेद • मुख्य विशेषताएं</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t upsc">UPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 मौलिक अधिकार (Art. 12–35)</div>
+            <div class="ti-sub">• समानता का अधिकार (14-18) • स्वतंत्रता का अधिकार (19-22) • शोषण के विरुद्ध (23-24) • धर्म की स्वतंत्रता (25-28) • Art.21A शिक्षा • Art.32 संवैधानिक उपचार</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 नीति निर्देशक तत्व (DPSP)</div>
+            <div class="ti-sub">• Art. 36-51 • DPSP की प्रकृति • समान नागरिक संहिता (44) • ग्राम पंचायत (40) • मौलिक अधिकार vs DPSP</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 संसद – Parliament</div>
+            <div class="ti-sub">• लोकसभा (543 सीटें) • राज्यसभा (250 सीटें) • विधायी प्रक्रिया • धन विधेयक • संयुक्त बैठक</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 राष्ट्रपति एवं उपराष्ट्रपति</div>
+            <div class="ti-sub">• निर्वाचन प्रक्रिया • वीटो शक्ति के प्रकार • अध्यादेश जारी करने की शक्ति • महाभियोग प्रक्रिया</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 न्यायपालिका</div>
+            <div class="ti-sub">• सर्वोच्च न्यायालय – गठन और क्षेत्राधिकार • न्यायिक पुनर्विलोकन • उच्च न्यायालय • PIL – जनहित याचिका • लोक अदालत</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 पंचायती राज (73वां संशोधन)</div>
+            <div class="ti-sub">• त्रिस्तरीय पंचायत व्यवस्था • 74वां संशोधन – नगरीय निकाय • MP में पंचायती राज • बलवंत राय मेहता समिति</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 आपातकालीन प्रावधान</div>
+            <div class="ti-sub">• राष्ट्रीय आपातकाल (Art.352) • राष्ट्रपति शासन (Art.356) • वित्तीय आपातकाल (Art.360) • अब तक लगाए गए आपातकाल</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 महत्वपूर्ण संविधान संशोधन</div>
+            <div class="ti-sub">• 42वां (मिनी संविधान) • 44वां • 73वां, 74वां • 86वां (शिक्षा) • 101वां (GST) • 103वां (आर्थिक आरक्षण)</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODERN HISTORY -->
+      <div class="subj-card" onclick="toggleSubject('mhist')">
+        <div class="sc-header">
+          <span class="sc-icon">🏛️</span>
+          <div><h3>Modern History</h3><p>आधुनिक भारत का इतिहास</p></div>
+          <div class="sc-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          <span class="sc-arrow" id="arr-mhist">▼</span>
+        </div>
+        <div class="sc-body" id="mhist">
+          <div class="topic-item">
+            <div class="ti-head">📌 ब्रिटिश सत्ता की स्थापना</div>
+            <div class="ti-sub">• प्लासी का युद्ध (1757) • बक्सर का युद्ध (1764) • ईस्ट इंडिया कंपनी विस्तार • सहायक संधि • व्यपगत नीति</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t ssc">SSC GD</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 1857 की क्रांति ⭐</div>
+            <div class="ti-sub">• विद्रोह के कारण • मंगल पांडे, झांसी रानी, तात्या टोपे • प्रमुख केंद्र: मेरठ, दिल्ली, कानपुर, झांसी, लखनऊ • 1858 अधिनियम – कंपनी राज समाप्त</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span><span class="t ssc">SSC GD</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 भारतीय राष्ट्रीय कांग्रेस</div>
+            <div class="ti-sub">• स्थापना 1885 – A.O. Hume • उदारवादी vs अतिवादी • बंगाल विभाजन (1905) – स्वदेशी आंदोलन • सूरत विभाजन (1907) • मुस्लिम लीग स्थापना</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 गांधी जी के आंदोलन ⭐⭐</div>
+            <div class="ti-sub">• चंपारण सत्याग्रह (1917) • असहयोग आंदोलन (1920-22) • सविनय अवज्ञा / दांडी मार्च (1930) • भारत छोड़ो आंदोलन (1942) • करो या मरो</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span><span class="t ssc">SSC GD</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 क्रांतिकारी आंदोलन</div>
+            <div class="ti-sub">• भगत सिंह, सुखदेव, राजगुरु • चंद्रशेखर आजाद • सुभाष चंद्र बोस – INA (आजाद हिंद फौज) • काकोरी कांड (1925) • लाला लाजपत राय</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t ssc">SSC GD</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 सामाजिक सुधार आंदोलन</div>
+            <div class="ti-sub">• राजा राम मोहन रॉय – ब्रह्म समाज • दयानंद सरस्वती – आर्य समाज • स्वामी विवेकानंद – शिकागो भाषण 1893 • ज्योतिबा फुले, डॉ. अंबेडकर • सती प्रथा उन्मूलन</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 स्वतंत्रता और विभाजन</div>
+            <div class="ti-sub">• माउंटबेटन योजना (1947) • भारत-पाक विभाजन – Radcliffe Line • 15 August 1947 – स्वतंत्रता • रियासतों का विलय – सरदार पटेल</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANCIENT HISTORY -->
+      <div class="subj-card" onclick="toggleSubject('ahist')">
+        <div class="sc-header">
+          <span class="sc-icon">🏺</span>
+          <div><h3>Ancient History</h3><p>प्राचीन भारत का इतिहास</p></div>
+          <div class="sc-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span><span class="t ssc">SSC GD</span></div>
+          <span class="sc-arrow" id="arr-ahist">▼</span>
+        </div>
+        <div class="sc-body" id="ahist">
+          <div class="topic-item">
+            <div class="ti-head">📌 सिंधु घाटी सभ्यता ⭐</div>
+            <div class="ti-sub">• प्रमुख स्थल: हड़प्पा, मोहनजोदड़ो, लोथल, कालीबंगा, धोलावीरा • नगर नियोजन, जल निकासी • व्यापार, अज्ञात लिपि • पतन के कारण</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span><span class="t ssc">SSC GD</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 वैदिक सभ्यता</div>
+            <div class="ti-sub">• चार वेद: ऋग्वेद, सामवेद, यजुर्वेद, अथर्ववेद • ऋग्वैदिक vs उत्तर वैदिक काल • वर्ण व्यवस्था • उपनिषद, पुराण</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 मौर्य साम्राज्य ⭐⭐</div>
+            <div class="ti-sub">• चंद्रगुप्त मौर्य – साम्राज्य स्थापना • अशोक महान – कलिंग युद्ध, धम्म नीति • अशोक के शिलालेख और स्तंभ • कौटिल्य – अर्थशास्त्र • मौर्य प्रशासन</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span><span class="t ssc">SSC GD</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 गुप्त साम्राज्य – स्वर्ण युग</div>
+            <div class="ti-sub">• चंद्रगुप्त I, समुद्रगुप्त, चंद्रगुप्त II (विक्रमादित्य) • कालिदास, आर्यभट्ट, वराहमिहिर • शून्य की खोज • गणित और खगोल विज्ञान</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 बौद्ध और जैन धर्म</div>
+            <div class="ti-sub">• गौतम बुद्ध – चार आर्य सत्य, अष्टांगिक मार्ग • बौद्ध परिषदें • महावीर स्वामी – पंच महाव्रत • जैन धर्म के सिद्धांत</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span><span class="t ssc">SSC GD</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MEDIEVAL HISTORY -->
+      <div class="subj-card" onclick="toggleSubject('medhist')">
+        <div class="sc-header">
+          <span class="sc-icon">🕌</span>
+          <div><h3>Medieval History</h3><p>मध्यकालीन भारत का इतिहास</p></div>
+          <div class="sc-tags"><span class="t si">SI</span><span class="t ssc">SSC GD</span><span class="t mppsc">MPPSC</span></div>
+          <span class="sc-arrow" id="arr-medhist">▼</span>
+        </div>
+        <div class="sc-body" id="medhist">
+          <div class="topic-item">
+            <div class="ti-head">📌 दिल्ली सल्तनत (1206–1526)</div>
+            <div class="ti-sub">• गुलाम वंश (1206-90) • खिलजी वंश – अलाउद्दीन बाजार सुधार • तुगलक वंश – मोहम्मद बिन तुगलक • सैयद एवं लोदी वंश • इब्नबतूता का भ्रमण</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t ssc">SSC GD</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 मुगल साम्राज्य ⭐⭐</div>
+            <div class="ti-sub">• बाबर – पानीपत I (1526) • हुमायूं, शेरशाह सूरी • अकबर – दीन-ए-इलाही, नवरत्न, सुलह-ए-कुल • शाहजहां – ताजमहल • औरंगजेब – जिजिया कर पुनः लागू</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t ssc">SSC GD</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 मराठा साम्राज्य</div>
+            <div class="ti-sub">• छत्रपति शिवाजी महाराज • पेशवा – बाजीराव I (सर्वश्रेष्ठ पेशवा) • पानीपत III (1761) – मराठा पतन • मराठा संघ</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 भक्ति और सूफी आंदोलन</div>
+            <div class="ti-sub">• कबीर, तुलसीदास, मीराबाई, रामानंद • चैतन्य महाप्रभु • ख्वाजा मोइनुद्दीन चिश्ती (अजमेर) • सूफी सिलसिले</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GEOGRAPHY -->
+      <div class="subj-card featured" onclick="toggleSubject('geo')">
+        <div class="sc-header">
+          <span class="sc-icon">🌍</span>
+          <div><h3>Geography</h3><p>भूगोल – विश्व + भारत + MP</p></div>
+          <div class="sc-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          <span class="sc-arrow" id="arr-geo">▼</span>
+        </div>
+        <div class="sc-body" id="geo">
+          <div class="topic-item">
+            <div class="ti-head">📌 पृथ्वी की संरचना</div>
+            <div class="ti-sub">• पृथ्वी की परतें – क्रस्ट, मेंटल, कोर • अक्षांश-देशांतर • परिभ्रमण और परिक्रमण • ऋतुएं और समय क्षेत्र • अंतर्राष्ट्रीय तिथि रेखा</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t ssc">SSC GD</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 भारत की नदियाँ ⭐⭐</div>
+            <div class="ti-sub">• हिमालयी: गंगा, यमुना, ब्रह्मपुत्र • प्रायद्वीपीय: नर्मदा, ताप्ती, कावेरी, कृष्णा, गोदावरी • नर्मदा – अमरकंटक से, अरब सागर में • चंबल, बेतवा – MP की नदियां</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 मध्यप्रदेश का भूगोल ⭐⭐⭐</div>
+            <div class="ti-sub">• स्थिति: 21°6' N to 26°54' N • क्षेत्रफल: 3,08,252 km² (भारत में 2nd) • 52 जिले, 10 संभाग • मालवा पठार, बुंदेलखंड, विंध्य, बघेलखंड • MP की जलवायु – अर्ध-शुष्क</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 भारतीय मानसून</div>
+            <div class="ti-sub">• दक्षिण-पश्चिम मानसून (June-Sept) • उत्तर-पूर्व मानसून • अरब सागर शाखा vs बंगाल की खाड़ी शाखा • मानसून का आगमन और वापसी</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 विश्व भूगोल</div>
+            <div class="ti-sub">• 7 महाद्वीप और 5 महासागर • विश्व की सबसे लंबी/बड़ी नदियां • विश्व के प्रमुख मरुस्थल • देश और उनकी राजधानियां • प्रमुख जलसंधियाँ</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t ssc">SSC GD</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ECONOMICS -->
+      <div class="subj-card" onclick="toggleSubject('eco')">
+        <div class="sc-header">
+          <span class="sc-icon">💰</span>
+          <div><h3>Economics</h3><p>भारतीय अर्थशास्त्र</p></div>
+          <div class="sc-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span><span class="t mppsc">MPPSC</span></div>
+          <span class="sc-arrow" id="arr-eco">▼</span>
+        </div>
+        <div class="sc-body" id="eco">
+          <div class="topic-item">
+            <div class="ti-head">📌 भारतीय अर्थव्यवस्था – आधार</div>
+            <div class="ti-sub">• GDP, GNP, NNP की अवधारणाएं • मिश्रित अर्थव्यवस्था • NITI Aayog (2015) – योजना आयोग की जगह • पंचवर्षीय योजनाएं (1951–2017)</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 बैंकिंग और RBI ⭐</div>
+            <div class="ti-sub">• RBI – कार्य और शक्तियां • Repo Rate, Reverse Repo Rate • CRR (नकद आरक्षित अनुपात), SLR • UPI, NEFT, RTGS • राष्ट्रीयकृत बैंक (1969, 1980)</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 GST और कर व्यवस्था</div>
+            <div class="ti-sub">• GST – 101वां संशोधन (2017) • 4 स्लैब: 5%, 12%, 18%, 28% • प्रत्यक्ष vs अप्रत्यक्ष कर • आयकर, कॉर्पोरेट टैक्स</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 कृषि एवं योजनाएं</div>
+            <div class="ti-sub">• हरित क्रांति (1966-67) – M.S. Swaminathan • MSP – न्यूनतम समर्थन मूल्य • PM-KISAN, फसल बीमा • MP की प्रमुख फसलें: सोयाबीन, गेहूं, चना</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GENERAL SCIENCE -->
+      <div class="subj-card" onclick="toggleSubject('sci')">
+        <div class="sc-header">
+          <span class="sc-icon">🔬</span>
+          <div><h3>General Science</h3><p>भौतिकी + रसायन + जीव विज्ञान</p></div>
+          <div class="sc-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t ssc">SSC GD</span></div>
+          <span class="sc-arrow" id="arr-sci">▼</span>
+        </div>
+        <div class="sc-body" id="sci">
+          <div class="topic-item">
+            <div class="ti-head">⚡ Physics – न्यूटन के गति के नियम</div>
+            <div class="ti-sub">• तीनों नियम और उदाहरण • गुरुत्वाकर्षण (G vs g) • घर्षण, जड़त्व, संवेग • कार्य, ऊर्जा, शक्ति • प्रकाश की गति = 3×10⁸ m/s</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t ssc">SSC GD</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">⚡ Physics – प्रकाश और ध्वनि</div>
+            <div class="ti-sub">• परावर्तन, अपवर्तन के नियम • दर्पण और लेंस • इंद्रधनुष, प्रिज्म, VIBGYOR • ध्वनि की गति = 343 m/s • अल्ट्रासाउंड, इन्फ्रासाउंड</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t ssc">SSC GD</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">⚗️ Chemistry – परमाणु संरचना</div>
+            <div class="ti-sub">• इलेक्ट्रॉन, प्रोटॉन, न्यूट्रॉन • परमाणु क्रमांक, द्रव्यमान संख्या • आवर्त सारणी – Groups और Periods • समस्थानिक, आयन</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t ssc">SSC GD</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">⚗️ Chemistry – अम्ल, क्षार, लवण ⭐</div>
+            <div class="ti-sub">• pH स्केल: 7=Neutral, &lt;7=Acidic, &gt;7=Basic • प्रमुख अम्ल: HCl, H₂SO₄, HNO₃ • प्रमुख सूत्र: NaCl, H₂O, CO₂, NaOH • ऑक्सीकरण-अपचयन</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t ssc">SSC GD</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">🧬 Biology – मानव शरीर ⭐⭐</div>
+            <div class="ti-sub">• पाचन तंत्र – एंजाइम • श्वसन तंत्र • रक्त परिसंचरण – हृदय 4 chambers • रक्त समूह: A, B, AB (Universal Receptor), O (Universal Donor) • मानव मस्तिष्क के भाग</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t ssc">SSC GD</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">🧬 Biology – रोग और विटामिन ⭐</div>
+            <div class="ti-sub">• विटामिन A,B,C,D,E,K – कमी से रोग • बैक्टीरियल: TB, हैजा, टाइफाइड • वायरल: COVID, पोलियो, डेंगू • प्रोटोजोआ: मलेरिया (Plasmodium) • DNA, RNA, जीन, क्रोमोसोम</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t ssc">SSC GD</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENVIRONMENT -->
+      <div class="subj-card" onclick="toggleSubject('env')">
+        <div class="sc-header">
+          <span class="sc-icon">🌿</span>
+          <div><h3>Environment</h3><p>पर्यावरण एवं पारिस्थितिकी</p></div>
+          <div class="sc-tags"><span class="t si">SI</span><span class="t mppsc">MPPSC</span><span class="t upsc">UPSC</span></div>
+          <span class="sc-arrow" id="arr-env">▼</span>
+        </div>
+        <div class="sc-body" id="env">
+          <div class="topic-item">
+            <div class="ti-head">📌 पारिस्थितिकी तंत्र</div>
+            <div class="ti-sub">• आहार श्रृंखला और आहार जाल • ऊर्जा प्रवाह – 10% नियम • उत्पादक, उपभोक्ता, अपघटक • जैव भू-रासायनिक चक्र • जीवोम (Biomes) के प्रकार</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 जलवायु परिवर्तन ⭐</div>
+            <div class="ti-sub">• ग्रीन हाउस गैसें: CO₂, मीथेन, N₂O • ओजोन परत – स्ट्रेटोस्फेयर, UV Rays • मॉन्ट्रियल प्रोटोकॉल (1987) • पेरिस समझौता (2015) • ग्लोबल वार्मिंग के प्रभाव</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t upsc">UPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 वन्यजीव संरक्षण ⭐⭐ (MP)</div>
+            <div class="ti-sub">• MP के राष्ट्रीय उद्यान: कान्हा, बांधवगढ़, पेंच, सतपुड़ा, माधव, पन्ना • Project Tiger (1973) – MP Tiger State • वन्यजीव संरक्षण अधिनियम 1972 • IUCN Red List</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 प्रदूषण और नियंत्रण</div>
+            <div class="ti-sub">• वायु, जल, मृदा, ध्वनि प्रदूषण • ध्वनि प्रदूषण मानक • पर्यावरण संरक्षण अधिनियम 1986 • CPCB – केंद्रीय प्रदूषण नियंत्रण बोर्ड • जल अधिनियम 1974</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MP GK -->
+      <div class="subj-card featured" onclick="toggleSubject('mpgk')">
+        <div class="sc-header">
+          <span class="sc-icon">🗺️</span>
+          <div><h3>MP GK ⭐ (Most Important)</h3><p>मध्यप्रदेश सामान्य ज्ञान</p></div>
+          <div class="sc-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          <span class="sc-arrow" id="arr-mpgk">▼</span>
+        </div>
+        <div class="sc-body" id="mpgk">
+          <div class="topic-item">
+            <div class="ti-head">📌 MP की स्थापना और इतिहास</div>
+            <div class="ti-sub">• स्थापना: 1 नवंबर 1956 • 2000 में छत्तीसगढ़ अलग हुआ • प्राचीन: मागध, विदिशा, उज्जैन राज्य • होल्कर, सिंधिया, भोंसले – प्रमुख राजवंश</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 MP के राज्य प्रतीक ⭐⭐⭐</div>
+            <div class="ti-sub">• राज्य पशु: बारासिंगा • राज्य पक्षी: दूधराज (Paradise Flycatcher) • राज्य पुष्प: सफेद लिली • राज्य वृक्ष: बरगद • राज्य मछली: महाशीर • राज्य नृत्य: राई • राज्य खेल: मलखंब</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 MP के 52 जिले और 10 संभाग ⭐⭐⭐</div>
+            <div class="ti-sub">• 10 संभाग: भोपाल, इंदौर, ग्वालियर, जबलपुर, उज्जैन, सागर, रीवा, होशंगाबाद, चंबल, शहडोल • क्षेत्रफल में सबसे बड़ा: छिंदवाड़ा • सबसे छोटा: दतिया</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 MP के राष्ट्रीय उद्यान ⭐⭐⭐</div>
+            <div class="ti-sub">• कान्हा (मंडला-बालाघाट) – बारासिंगा • बांधवगढ़ (उमरिया) – सर्वाधिक बाघ • पेंच (छिंदवाड़ा-सिवनी) • सतपुड़ा (होशंगाबाद) • माधव (शिवपुरी) • पन्ना (पन्ना) • MP = Tiger State</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 MP की नदियाँ ⭐⭐⭐</div>
+            <div class="ti-sub">• नर्मदा: अमरकंटक → अरब सागर (MP की जीवन रेखा) • चंबल: जनापाव → यमुना • बेतवा: रायसेन → यमुना • सोन: अमरकंटक → गंगा • तवा: महादेव पहाड़ → नर्मदा</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 MP की UNESCO विरासत स्थल</div>
+            <div class="ti-sub">• खजुराहो मंदिर (1986) – चंदेल वंश • सांची स्तूप (1989) – अशोक कालीन • भीमबेटका (2003) – प्रागैतिहासिक गुफाएं</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 MP की जनजातियाँ</div>
+            <div class="ti-sub">• गोंड (सर्वाधिक), भील, बैगा, सहरिया, कोरकू, ओझा • जनजातीय क्षेत्र: मंडला, बालाघाट, छिंदवाड़ा • गोंड चित्रकला – विश्वप्रसिद्ध</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 MP का खनिज और कृषि</div>
+            <div class="ti-sub">• हीरा: पन्ना जिला • तांबा: बालाघाट • कोयला: सिंगरौली • सोयाबीन – MP का प्रमुख उत्पाद (सोया राज्य) • MP में 25% वन क्षेत्र</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+          <div class="topic-item">
+            <div class="ti-head">📌 MP की सरकार एवं राजनीति</div>
+            <div class="ti-sub">• विधानसभा: 230 सीटें • लोकसभा: 29 सीटें • राज्यसभा: 11 सीटें • उच्च न्यायालय: जबलपुर (खंडपीठ: इंदौर, ग्वालियर) • राजधानी: भोपाल</div>
+            <div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REASONING -->
+      <div class="subj-card" onclick="toggleSubject('reas')">
+        <div class="sc-header">
+          <span class="sc-icon">🧠</span>
+          <div><h3>Reasoning</h3><p>तर्कशक्ति एवं मानसिक योग्यता</p></div>
+          <div class="sc-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t ssc">SSC GD</span></div>
+          <span class="sc-arrow" id="arr-reas">▼</span>
+        </div>
+        <div class="sc-body" id="reas">
+          <div class="topic-item"><div class="ti-head">📌 सादृश्यता (Analogy)</div><div class="ti-sub">• शब्द, संख्या, अक्षर आधारित सादृश्य • Odd One Out</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 संख्या श्रृंखला ⭐⭐</div><div class="ti-sub">• Arithmetic Series • Geometric Series • Mixed Series • लुप्त पद ढूंढना</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t ssc">SSC GD</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 कोडिंग-डिकोडिंग</div><div class="ti-sub">• Letter Coding • Number Coding • Symbol Coding</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 दिशा ज्ञान</div><div class="ti-sub">• 8 दिशाएं • दिशा और दूरी • छाया आधारित प्रश्न</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 रक्त संबंध</div><div class="ti-sub">• पारिवारिक संबंध • पीढ़ी आधारित प्रश्न • Coded Blood Relations</div><div class="ti-tags"><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 पहेलियाँ और व्यवस्था ⭐</div><div class="ti-sub">• Linear Seating Arrangement • Circular Arrangement • Floor Puzzle • Ranking and Order</div><div class="ti-tags"><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 दर्पण और आकृति</div><div class="ti-sub">• Mirror Image • Water Image • Figure Counting • Embedded Figures</div><div class="ti-tags"><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+        </div>
+      </div>
+
+      <!-- MATHEMATICS -->
+      <div class="subj-card" onclick="toggleSubject('math')">
+        <div class="sc-header">
+          <span class="sc-icon">📐</span>
+          <div><h3>Mathematics</h3><p>सामान्य गणित (10वीं स्तर)</p></div>
+          <div class="sc-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t ssc">SSC GD</span></div>
+          <span class="sc-arrow" id="arr-math">▼</span>
+        </div>
+        <div class="sc-body" id="math">
+          <div class="topic-item"><div class="ti-head">📌 संख्या पद्धति और LCM/HCF</div><div class="ti-sub">• LCM और HCF निकालना • भाज्यता के नियम (2,3,4,5,6,7,8,9,11) • अभाज्य संख्याएं</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 प्रतिशत और अनुपात ⭐⭐</div><div class="ti-sub">• प्रतिशत – वृद्धि और कमी • अनुपात और समानुपात • भागीदारी (Partnership) • मिश्रण और संयोजन (Alligation)</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t ssc">SSC GD</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 समय, कार्य और चाल ⭐⭐</div><div class="ti-sub">• समय और कार्य • चाल-दूरी-समय • ट्रेन संबंधी प्रश्न • नाव और धारा</div><div class="ti-tags"><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 साधारण और चक्रवृद्धि ब्याज ⭐</div><div class="ti-sub">• SI = PRT/100 • CI सूत्र = P(1+R/100)ⁿ • SI और CI में अंतर</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t ssc">SSC GD</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 क्षेत्रफल और आयतन</div><div class="ti-sub">• त्रिभुज, चतुर्भुज, वृत्त • घन, घनाभ, बेलन, शंकु, गोला • सभी क्षेत्रफल सूत्र</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 औसत और आंकड़े</div><div class="ti-sub">• माध्य (Mean), माध्यिका (Median), बहुलक (Mode) • Bar Graph, Pie Chart पढ़ना • Probability (संभाव्यता)</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+        </div>
+      </div>
+
+      <!-- HINDI GRAMMAR -->
+      <div class="subj-card" onclick="toggleSubject('hindi')">
+        <div class="sc-header">
+          <span class="sc-icon">📖</span>
+          <div><h3>Hindi Grammar</h3><p>हिंदी व्याकरण</p></div>
+          <div class="sc-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          <span class="sc-arrow" id="arr-hindi">▼</span>
+        </div>
+        <div class="sc-body" id="hindi">
+          <div class="topic-item"><div class="ti-head">📌 संधि ⭐⭐⭐</div><div class="ti-sub">• स्वर संधि: दीर्घ, गुण, वृद्धि, यण, अयादि • व्यंजन संधि • विसर्ग संधि • 5-6 प्रश्न हर परीक्षा में</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 समास ⭐⭐⭐</div><div class="ti-sub">• अव्ययीभाव • तत्पुरुष (6 प्रकार) • कर्मधारय • द्विगु • द्वंद्व • बहुव्रीहि • समास विग्रह</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 अलंकार</div><div class="ti-sub">• शब्दालंकार: अनुप्रास, यमक, श्लेष • अर्थालंकार: उपमा, रूपक, उत्प्रेक्षा • मानवीकरण, अतिशयोक्ति</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 शब्द भेद और व्याकरण</div><div class="ti-sub">• तत्सम, तद्भव, देशज, विदेशज • संज्ञा, सर्वनाम, विशेषण, क्रिया, अव्यय • वचन, लिंग, काल, कारक</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 मुहावरे, लोकोक्तियाँ ⭐⭐</div><div class="ti-sub">• 100+ प्रमुख मुहावरे और अर्थ • लोकोक्तियां (कहावतें) • पर्यायवाची शब्द • विलोम शब्द</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 रस और छंद</div><div class="ti-sub">• 9 रस और उनके स्थायी भाव • दोहा, चौपाई, सोरठा • काव्य के भेद</div><div class="ti-tags"><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+        </div>
+      </div>
+
+      <!-- CURRENT AFFAIRS -->
+      <div class="subj-card" onclick="toggleSubject('ca')">
+        <div class="sc-header">
+          <span class="sc-icon">📰</span>
+          <div><h3>Current Affairs</h3><p>समसामयिक घटनाएं</p></div>
+          <div class="sc-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+          <span class="sc-arrow" id="arr-ca">▼</span>
+        </div>
+        <div class="sc-body" id="ca">
+          <div class="topic-item"><div class="ti-head">📌 MP Current Affairs ⭐⭐⭐</div><div class="ti-sub">• MP सरकार की नई योजनाएं • MP में हुई महत्वपूर्ण घटनाएं • MP के नए नियुक्त अधिकारी • MP में बड़े निवेश/परियोजनाएं</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 राष्ट्रीय पुरस्कार</div><div class="ti-sub">• पद्म पुरस्कार (Padma Vibhushan, Bhushan, Shri) • भारत रत्न • नोबेल पुरस्कार • राष्ट्रीय फिल्म पुरस्कार • साहित्य अकादमी</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 खेल और उपलब्धियां</div><div class="ti-sub">• भारतीय खेल उपलब्धियां (Cricket, Olympics) • Asian Games, Commonwealth • खेल रत्न पुरस्कार</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 अंतर्राष्ट्रीय घटनाएं</div><div class="ti-sub">• G20, SCO, BRICS सम्मेलन • नई अंतर्राष्ट्रीय नियुक्तियां • UN रिपोर्टें • भारत की विदेश नीति</div><div class="ti-tags"><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+          <div class="topic-item"><div class="ti-head">📌 नई नियुक्तियां (Important)</div><div class="ti-sub">• राष्ट्रपति, प्रधानमंत्री • CJI, CAG, CEC • MP के राज्यपाल, CM • RBI गवर्नर</div><div class="ti-tags"><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div></div>
+        </div>
+      </div>
+
+    </div><!-- end subjects-grid -->
+  </div>
+</section>
+
+<!-- ===== TOP 100 REPEATED TOPICS ===== -->
+<section id="repeated">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-tag">MOST REPEATED</span>
+      <h2>🔥 Top 100 बार-बार पूछे गए टॉपिक</h2>
+      <p>पिछले 10 वर्षों के प्रश्नपत्रों के विश्लेषण पर आधारित</p>
+    </div>
+
+    <div class="hbox" style="margin-bottom:32px;">
+      <h4>📊 Frequency Guide</h4>
+      <p>⭐⭐⭐⭐⭐ = हर परीक्षा में आता है &nbsp;|&nbsp; ⭐⭐⭐⭐ = अधिकतर परीक्षाओं में &nbsp;|&nbsp; ⭐⭐⭐ = कभी-कभी आता है</p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="filter-row">
+      <span style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold);letter-spacing:2px;align-self:center;margin-right:6px;">FILTER:</span>
+      <button class="fbtn active" onclick="filterTopics('all',this)">🔥 सभी</button>
+      <button class="fbtn" onclick="filterTopics('polity',this)">⚖️ Polity</button>
+      <button class="fbtn" onclick="filterTopics('history',this)">🏛️ History</button>
+      <button class="fbtn" onclick="filterTopics('mpgk',this)">🗺️ MP GK</button>
+      <button class="fbtn" onclick="filterTopics('geo',this)">🌍 Geography</button>
+      <button class="fbtn" onclick="filterTopics('science',this)">🔬 Science</button>
+      <button class="fbtn" onclick="filterTopics('math',this)">📐 Math</button>
+      <button class="fbtn" onclick="filterTopics('hindi',this)">📖 Hindi</button>
+      <button class="fbtn" onclick="filterTopics('reasoning',this)">🧠 Reasoning</button>
+    </div>
+
+    <!-- TOP 10 -->
+    <div class="rank-div"><span>🏆 TOP 10 — सबसे ज़रूरी टॉपिक</span></div>
+    <div class="top100-grid" id="topics-container">
+
+      <div class="tcard top10" data-cat="mpgk">
+        <span class="trank">01</span>
+        <div class="tinfo">
+          <div class="tname">मध्यप्रदेश के राज्य प्रतीक</div>
+          <div class="tsub">राज्य पशु, पक्षी, पुष्प, वृक्ष, नृत्य, मछली, खेल</div>
+          <div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+        </div>
+      </div>
+
+      <div class="tcard top10" data-cat="polity">
+        <span class="trank">02</span>
+        <div class="tinfo">
+          <div class="tname">मौलिक अधिकार (Art. 12–35)</div>
+          <div class="tsub">6 मौलिक अधिकार, अनुच्छेद और विवरण</div>
+          <div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t upsc">UPSC</span><span class="t mppsc">MPPSC</span></div>
+        </div>
+      </div>
+
+      <div class="tcard top10" data-cat="mpgk">
+        <span class="trank">03</span>
+        <div class="tinfo">
+          <div class="tname">MP के राष्ट्रीय उद्यान और अभयारण्य</div>
+          <div class="tsub">कान्हा, बांधवगढ़, पेंच, सतपुड़ा, माधव, पन्ना</div>
+          <div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+        </div>
+      </div>
+
+      <div class="tcard top10" data-cat="history">
+        <span class="trank">04</span>
+        <div class="tinfo">
+          <div class="tname">गांधी जी के प्रमुख आंदोलन</div>
+          <div class="tsub">असहयोग, सविनय अवज्ञा, दांडी मार्च, भारत छोड़ो</div>
+          <div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span><span class="t ssc">SSC GD</span></div>
+        </div>
+      </div>
+
+      <div class="tcard top10" data-cat="mpgk">
+        <span class="trank">05</span>
+        <div class="tinfo">
+          <div class="tname">MP की नदियाँ और उनका उद्गम</div>
+          <div class="tsub">नर्मदा (अमरकंटक), चंबल, बेतवा, सोन, तवा</div>
+          <div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+        </div>
+      </div>
+
+      <div class="tcard top10" data-cat="geo">
+        <span class="trank">06</span>
+        <div class="tinfo">
+          <div class="tname">भारत की प्रमुख नदियाँ</div>
+          <div class="tsub">गंगा, यमुना, ब्रह्मपुत्र, कावेरी – उद्गम और लंबाई</div>
+          <div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span><span class="t upsc">UPSC</span></div>
+        </div>
+      </div>
+
+      <div class="tcard top10" data-cat="history">
+        <span class="trank">07</span>
+        <div class="tinfo">
+          <div class="tname">मौर्य साम्राज्य – अशोक महान</div>
+          <div class="tsub">कलिंग युद्ध, धम्म नीति, शिलालेख, कौटिल्य</div>
+          <div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t upsc">UPSC</span><span class="t ssc">SSC GD</span></div>
+        </div>
+      </div>
+
+      <div class="tcard top10" data-cat="mpgk">
+        <span class="trank">08</span>
+        <div class="tinfo">
+          <div class="tname">MP के 52 जिले और 10 संभाग</div>
+          <div class="tsub">सभी संभागों के मुख्यालय, बड़ा-छोटा जिला</div>
+          <div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span><span class="t mppsc">MPPSC</span></div>
+        </div>
+      </div>
+
+      <div class="tcard top10" data-cat="polity">
+        <span class="trank">09</span>
+        <div class="tinfo">
+          <div class="tname">संसद की संरचना</div>
+          <div class="tsub">लोकसभा (543), राज्यसभा (250), कार्यकाल, अध्यक्ष</div>
+          <div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span><span class="t upsc">UPSC</span></div>
+        </div>
+      </div>
+
+      <div class="tcard top10" data-cat="science">
+        <span class="trank">10</span>
+        <div class="tinfo">
+          <div class="tname">रासायनिक सूत्र – Common Chemicals</div>
+          <div class="tsub">NaCl, H₂O, CO₂, H₂SO₄, NaOH, HCl, NH₃</div>
+          <div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span><span class="t ssc">SSC GD</span></div>
+        </div>
+      </div>
+
+    </div><!-- end top10 -->
+
+    <!-- RANK 11–30 -->
+    <div class="rank-div" style="margin-top:36px;"><span>🥇 RANK 11–30</span></div>
+    <div class="top100-grid">
+
+      <div class="tcard" data-cat="history">
+        <span class="trank">11</span>
+        <div class="tinfo"><div class="tname">1857 की क्रांति – नेता और केंद्र</div><div class="tsub">झांसी, मेरठ, कानपुर, दिल्ली, लखनऊ के नेता</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="polity">
+        <span class="trank">12</span>
+        <div class="tinfo"><div class="tname">भारतीय संविधान – प्रस्तावना</div><div class="tsub">समाजवादी, धर्मनिरपेक्ष, लोकतांत्रिक, गणराज्य</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t upsc">UPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="mpgk">
+        <span class="trank">13</span>
+        <div class="tinfo"><div class="tname">MP की UNESCO विरासत स्थल</div><div class="tsub">खजुराहो (1986), सांची (1989), भीमबेटका (2003)</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="history">
+        <span class="trank">14</span>
+        <div class="tinfo"><div class="tname">अकबर की नीतियां</div><div class="tsub">दीन-ए-इलाही, नवरत्न, सुलह-ए-कुल, मनसबदारी</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">15</span>
+        <div class="tinfo"><div class="tname">मानव रक्त समूह</div><div class="tsub">A, B, AB (Universal Receptor), O (Universal Donor)</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="polity">
+        <span class="trank">16</span>
+        <div class="tinfo"><div class="tname">पंचायती राज – 73वां संशोधन</div><div class="tsub">त्रिस्तरीय व्यवस्था, 1992, बलवंत राय मेहता</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">17</span>
+        <div class="tinfo"><div class="tname">विटामिन और कमी से रोग</div><div class="tsub">A (रतौंधी), B (बेरीबेरी), C (स्कर्वी), D (रिकेट्स)</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="history">
+        <span class="trank">18</span>
+        <div class="tinfo"><div class="tname">सिंधु घाटी सभ्यता – प्रमुख स्थल</div><div class="tsub">हड़प्पा, मोहनजोदड़ो, लोथल, कालीबंगा, धोलावीरा</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t upsc">UPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="mpgk">
+        <span class="trank">19</span>
+        <div class="tinfo"><div class="tname">MP की प्रमुख फसलें</div><div class="tsub">सोयाबीन (सर्वाधिक), गेहूं, चना, कपास, अफीम</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">20</span>
+        <div class="tinfo"><div class="tname">न्यूटन के गति के तीन नियम</div><div class="tsub">जड़त्व, त्वरण, क्रिया-प्रतिक्रिया – उदाहरण सहित</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="polity">
+        <span class="trank">21</span>
+        <div class="tinfo"><div class="tname">राष्ट्रपति की शक्तियां</div><div class="tsub">तीन वीटो, अध्यादेश, क्षमादान, महाभियोग</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="geo">
+        <span class="trank">22</span>
+        <div class="tinfo"><div class="tname">भारत के पर्वत – हिमालय श्रेणियां</div><div class="tsub">महान हिमालय, लघु हिमालय, शिवालिक, ट्रांस हिमालय</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t upsc">UPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="history">
+        <span class="trank">23</span>
+        <div class="tinfo"><div class="tname">भारतीय राष्ट्रीय कांग्रेस – स्थापना</div><div class="tsub">1885, A.O. Hume, बॉम्बे, प्रथम अध्यक्ष W.C. Bonnerjee</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="polity">
+        <span class="trank">24</span>
+        <div class="tinfo"><div class="tname">GST – वस्तु एवं सेवा कर</div><div class="tsub">101वां संशोधन, 2017, 4 स्लैब: 5,12,18,28%</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">25</span>
+        <div class="tinfo"><div class="tname">pH Scale और अम्ल-क्षार</div><div class="tsub">pH 7=Neutral, &lt;7=Acidic, &gt;7=Basic – उदाहरण</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="geo">
+        <span class="trank">26</span>
+        <div class="tinfo"><div class="tname">भारतीय मानसून</div><div class="tsub">SW मानसून (June-Sept), अरब सागर vs बंगाल की खाड़ी</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t upsc">UPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="mpgk">
+        <span class="trank">27</span>
+        <div class="tinfo"><div class="tname">MP की जनजातियाँ</div><div class="tsub">गोंड, भील, बैगा, सहरिया, कोरकू – क्षेत्र और विशेषता</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="polity">
+        <span class="trank">28</span>
+        <div class="tinfo"><div class="tname">आपातकालीन प्रावधान</div><div class="tsub">Art.352 (राष्ट्रीय), Art.356 (राष्ट्रपति शासन), Art.360 (वित्तीय)</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t upsc">UPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">29</span>
+        <div class="tinfo"><div class="tname">मानव पाचन तंत्र</div><div class="tsub">मुख, ग्रासनली, आमाशय, आंत, एंजाइम – कार्य</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="history">
+        <span class="trank">30</span>
+        <div class="tinfo"><div class="tname">स्वामी विवेकानंद</div><div class="tsub">1863-1902, रामकृष्ण मिशन, शिकागो भाषण 1893</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+    </div><!-- end 11-30 -->
+
+    <!-- RANK 31–60 -->
+    <div class="rank-div" style="margin-top:36px;"><span>🥈 RANK 31–60</span></div>
+    <div class="top100-grid">
+
+      <div class="tcard" data-cat="hindi">
+        <span class="trank">31</span>
+        <div class="tinfo"><div class="tname">हिंदी व्याकरण – संधि</div><div class="tsub">स्वर संधि (5 भेद), व्यंजन संधि, विसर्ग संधि</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="hindi">
+        <span class="trank">32</span>
+        <div class="tinfo"><div class="tname">हिंदी व्याकरण – समास</div><div class="tsub">6 प्रकार – अव्ययीभाव, तत्पुरुष, कर्मधारय, द्विगु, द्वंद्व, बहुव्रीहि</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="mpgk">
+        <span class="trank">33</span>
+        <div class="tinfo"><div class="tname">MP का उच्च न्यायालय</div><div class="tsub">जबलपुर (मुख्य), इंदौर और ग्वालियर (खंडपीठ)</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="geo">
+        <span class="trank">34</span>
+        <div class="tinfo"><div class="tname">भारत के पड़ोसी देश</div><div class="tsub">7 देश – सीमाएं, राजधानियां, मुद्राएं</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="history">
+        <span class="trank">35</span>
+        <div class="tinfo"><div class="tname">पानीपत के तीन युद्ध</div><div class="tsub">प्रथम (1526), द्वितीय (1556), तृतीय (1761)</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">36</span>
+        <div class="tinfo"><div class="tname">मलेरिया – कारण और रोकथाम</div><div class="tsub">Plasmodium, Anopheles मच्छर, Quinine दवा</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="polity">
+        <span class="trank">37</span>
+        <div class="tinfo"><div class="tname">भारत की जनगणना 2011</div><div class="tsub">जनसंख्या 121 cr, साक्षरता 74%, घनत्व 382/km²</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="mpgk">
+        <span class="trank">38</span>
+        <div class="tinfo"><div class="tname">MP का खनिज भंडार</div><div class="tsub">हीरा (पन्ना), बॉक्साइट, लौह अयस्क, कोयला (सिंगरौली)</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">39</span>
+        <div class="tinfo"><div class="tname">ओजोन परत</div><div class="tsub">स्ट्रेटोस्फेयर, UV Rays, मॉन्ट्रियल प्रोटोकॉल (1987)</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t upsc">UPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="history">
+        <span class="trank">40</span>
+        <div class="tinfo"><div class="tname">डॉ. भीमराव अंबेडकर</div><div class="tsub">14 April 1891, संविधान निर्माता, दलित आंदोलन, भारत रत्न</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">41</span>
+        <div class="tinfo"><div class="tname">प्रकाश संश्लेषण</div><div class="tsub">क्लोरोफिल + CO₂ + H₂O + सूर्यप्रकाश → Glucose + O₂</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="mpgk">
+        <span class="trank">42</span>
+        <div class="tinfo"><div class="tname">MP के प्रमुख महोत्सव</div><div class="tsub">लोकरंग, खजुराहो नृत्य, नर्मदा उत्सव, कालिदास समारोह</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="math">
+        <span class="trank">43</span>
+        <div class="tinfo"><div class="tname">साधारण ब्याज (Simple Interest)</div><div class="tsub">SI = PRT/100, P=मूलधन, R=दर, T=समय</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="math">
+        <span class="trank">44</span>
+        <div class="tinfo"><div class="tname">प्रतिशत – वृद्धि और कमी</div><div class="tsub">% increase/decrease formula, लाभ-हानि % निकालना</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="reasoning">
+        <span class="trank">45</span>
+        <div class="tinfo"><div class="tname">संख्या श्रृंखला (Number Series)</div><div class="tsub">Arithmetic, Geometric, Mixed Series – लुप्त पद ढूंढना</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="geo">
+        <span class="trank">46</span>
+        <div class="tinfo"><div class="tname">भारत के प्रमुख बंदरगाह</div><div class="tsub">मुंबई, कांडला, चेन्नई, कोलकाता, विशाखापट्टनम</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">47</span>
+        <div class="tinfo"><div class="tname">प्रकाश और ध्वनि की गति</div><div class="tsub">प्रकाश = 3×10⁸ m/s, ध्वनि = 343 m/s (हवा में)</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="polity">
+        <span class="trank">48</span>
+        <div class="tinfo"><div class="tname">भारत का सर्वोच्च न्यायालय</div><div class="tsub">स्थापना 1950, CJI, न्यायाधीश संख्या 34, मूल क्षेत्राधिकार</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="history">
+        <span class="trank">49</span>
+        <div class="tinfo"><div class="tname">हरित क्रांति (Green Revolution)</div><div class="tsub">1966-67, M.S. Swaminathan, गेहूं-चावल उत्पादन</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="mpgk">
+        <span class="trank">50</span>
+        <div class="tinfo"><div class="tname">MP की विधानसभा</div><div class="tsub">230 सीटें, 29 लोकसभा, 11 राज्यसभा सीटें</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="reasoning">
+        <span class="trank">51</span>
+        <div class="tinfo"><div class="tname">दिशा ज्ञान (Direction Sense)</div><div class="tsub">8 दिशाएं, दिशा-दूरी, छाया आधारित प्रश्न</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="reasoning">
+        <span class="trank">52</span>
+        <div class="tinfo"><div class="tname">रक्त संबंध (Blood Relations)</div><div class="tsub">पारिवारिक संबंध, पीढ़ी आधारित, Coded Relations</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="math">
+        <span class="trank">53</span>
+        <div class="tinfo"><div class="tname">समय, दूरी और चाल</div><div class="tsub">Speed = Distance/Time, ट्रेन, नाव और धारा प्रश्न</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">54</span>
+        <div class="tinfo"><div class="tname">DNA, RNA और जेनेटिक्स</div><div class="tsub">जीन, क्रोमोसोम, मेंडल के नियम, आनुवंशिकी</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t upsc">UPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="geo">
+        <span class="trank">55</span>
+        <div class="tinfo"><div class="tname">भारत के प्रमुख दर्रे</div><div class="tsub">बोलन, खैबर, शिपकिला, नाथुला, रोहतांग, बनिहाल</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t upsc">UPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="mpgk">
+        <span class="trank">56</span>
+        <div class="tinfo"><div class="tname">MP की कला और नृत्य</div><div class="tsub">राई, करमा, सैला, बधाई, गोंड चित्रकला, पिथौरा</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="hindi">
+        <span class="trank">57</span>
+        <div class="tinfo"><div class="tname">मुहावरे और लोकोक्तियाँ</div><div class="tsub">100+ प्रमुख मुहावरे, पर्यायवाची, विलोम शब्द</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">58</span>
+        <div class="tinfo"><div class="tname">धातु और अधातु</div><div class="tsub">मिश्र धातुएं – स्टील, पीतल, कांस्य, सोल्डर</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="polity">
+        <span class="trank">59</span>
+        <div class="tinfo"><div class="tname">RBI और मौद्रिक नीति</div><div class="tsub">Repo Rate, Reverse Repo, CRR, SLR – वर्तमान दरें</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="geo">
+        <span class="trank">60</span>
+        <div class="tinfo"><div class="tname">भारत के प्रमुख नेशनल पार्क</div><div class="tsub">Jim Corbett, Sundarbans, Kaziranga, Ranthambore</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+    </div><!-- end 31-60 -->
+
+    <!-- RANK 61–100 -->
+    <div class="rank-div" style="margin-top:36px;"><span>🥉 RANK 61–100</span></div>
+    <div class="top100-grid">
+
+      <div class="tcard" data-cat="math">
+        <span class="trank">61</span>
+        <div class="tinfo"><div class="tname">चक्रवृद्धि ब्याज (CI)</div><div class="tsub">CI = P(1+R/100)ⁿ – P, SI vs CI अंतर</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="math">
+        <span class="trank">62</span>
+        <div class="tinfo"><div class="tname">अनुपात और समानुपात</div><div class="tsub">Ratio, Proportion, Partnership, Mixture Alligation</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="reasoning">
+        <span class="trank">63</span>
+        <div class="tinfo"><div class="tname">कोडिंग-डिकोडिंग</div><div class="tsub">Letter Coding, Number Coding, Symbol Coding</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="history">
+        <span class="trank">64</span>
+        <div class="tinfo"><div class="tname">भक्ति आंदोलन के संत</div><div class="tsub">कबीर, तुलसीदास, मीराबाई, रामानंद, चैतन्य</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t upsc">UPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="geo">
+        <span class="trank">65</span>
+        <div class="tinfo"><div class="tname">महाद्वीप और महासागर</div><div class="tsub">7 महाद्वीप, 5 महासागर, सबसे बड़े-छोटे</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="mpgk">
+        <span class="trank">66</span>
+        <div class="tinfo"><div class="tname">MP के प्रमुख बांध</div><div class="tsub">बरगी (नर्मदा), गांधी सागर (चंबल), तवा (तवा नदी)</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">67</span>
+        <div class="tinfo"><div class="tname">मानव हृदय</div><div class="tsub">4 chambers, रक्त प्रवाह, धमनी vs शिरा, Heart Rate</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="hindi">
+        <span class="trank">68</span>
+        <div class="tinfo"><div class="tname">अलंकार के प्रकार</div><div class="tsub">उपमा, रूपक, उत्प्रेक्षा, अनुप्रास, यमक, श्लेष</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="polity">
+        <span class="trank">69</span>
+        <div class="tinfo"><div class="tname">भारत के प्रधानमंत्री (सूची)</div><div class="tsub">नेहरू से वर्तमान PM तक – कार्यकाल और पार्टी</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="mpgk">
+        <span class="trank">70</span>
+        <div class="tinfo"><div class="tname">MP में Project Tiger – बाघ रिजर्व</div><div class="tsub">6 Tiger Reserves – कान्हा, बांधवगढ़, पेंच, सतपुड़ा, पन्ना, संजय</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="geo">
+        <span class="trank">71</span>
+        <div class="tinfo"><div class="tname">भारत की मिट्टियाँ</div><div class="tsub">जलोढ़, काली (रेगुर), लाल, लेटेराइट, मरुस्थलीय</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t upsc">UPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="history">
+        <span class="trank">72</span>
+        <div class="tinfo"><div class="tname">भारत-पाक विभाजन 1947</div><div class="tsub">Radcliffe Line, माउंटबेटन योजना, Cyril Radcliffe</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">73</span>
+        <div class="tinfo"><div class="tname">आवर्त सारणी (Periodic Table)</div><div class="tsub">Groups, Periods, धातु-अधातु-उपधातु, IUPAC</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="math">
+        <span class="trank">74</span>
+        <div class="tinfo"><div class="tname">क्षेत्रफल और परिमाप के सूत्र</div><div class="tsub">त्रिभुज, वृत्त, घन, बेलन, शंकु, गोले के सूत्र</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="polity">
+        <span class="trank">75</span>
+        <div class="tinfo"><div class="tname">नीति आयोग (NITI Aayog)</div><div class="tsub">2015 में स्थापित, Chairman = PM, CEO, SDGs</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="geo">
+        <span class="trank">76</span>
+        <div class="tinfo"><div class="tname">भारत के प्रमुख ज्वालामुखी और भूकंप</div><div class="tsub">अंडमान (बैरन द्वीप), भूकंप Zones, Richter Scale</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t upsc">UPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="reasoning">
+        <span class="trank">77</span>
+        <div class="tinfo"><div class="tname">बैठने की व्यवस्था (Seating Arrangement)</div><div class="tsub">Linear, Circular, Double Row Arrangement</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="mpgk">
+        <span class="trank">78</span>
+        <div class="tinfo"><div class="tname">MP की प्रमुख योजनाएं</div><div class="tsub">लाडली बहना, मुख्यमंत्री तीर्थ दर्शन, जन-कल्याण योजनाएं</div><div class="tmeta"><span class="stars s5">⭐⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="history">
+        <span class="trank">79</span>
+        <div class="tinfo"><div class="tname">गुप्त काल – स्वर्ण युग</div><div class="tsub">आर्यभट्ट (शून्य), कालिदास (साहित्य), वराहमिहिर</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t upsc">UPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">80</span>
+        <div class="tinfo"><div class="tname">विद्युत – ओम का नियम</div><div class="tsub">V = IR, श्रृंखला vs समांतर क्रम, विद्युत शक्ति P=VI</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="hindi">
+        <span class="trank">81</span>
+        <div class="tname">वाक्य शुद्धि</div>
+        <div class="tsub">अशुद्ध वाक्यों को शुद्ध करना – व्याकरणिक अशुद्धियां</div>
+        <div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div>
+      </div>
+
+      <div class="tcard" data-cat="polity">
+        <span class="trank">82</span>
+        <div class="tinfo"><div class="tname">भारत का निर्वाचन आयोग</div><div class="tsub">Art.324, CEC की नियुक्ति, EVM, VVPAT, आदर्श आचार संहिता</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="geo">
+        <span class="trank">83</span>
+        <div class="tinfo"><div class="tname">भारत के प्रमुख उद्योग</div><div class="tsub">कपड़ा, जूट, चीनी, सीमेंट, लोहा-इस्पात उद्योग केंद्र</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">84</span>
+        <div class="tinfo"><div class="tname">दर्पण और लेंस</div><div class="tsub">अवतल/उत्तल दर्पण, अवतल/उत्तल लेंस – उपयोग</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="mpgk">
+        <span class="trank">85</span>
+        <div class="tinfo"><div class="tname">MP के प्रमुख व्यक्तित्व</div><div class="tsub">चंद्रशेखर आजाद (भाबरा), तानसेन (ग्वालियर), रानी दुर्गावती</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="math">
+        <span class="trank">86</span>
+        <div class="tinfo"><div class="tname">LCM और HCF</div><div class="tsub">अभाज्य गुणनखंड विधि, भाग विधि – प्रश्न हल करना</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="history">
+        <span class="trank">87</span>
+        <div class="tinfo"><div class="tname">सरदार वल्लभभाई पटेल</div><div class="tsub">लौह पुरुष, रियासतों का विलय, सोमनाथ पुनर्निर्माण</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="reasoning">
+        <span class="trank">88</span>
+        <div class="tinfo"><div class="tname">Mirror Image और Water Image</div><div class="tsub">अक्षरों और आकृतियों के दर्पण प्रतिबिंब</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">89</span>
+        <div class="tinfo"><div class="tname">ग्रीनहाउस गैसें</div><div class="tsub">CO₂, CH₄, N₂O, H₂O vapor – ग्लोबल वार्मिंग, Paris Agreement</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t upsc">UPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="geo">
+        <span class="trank">90</span>
+        <div class="tinfo"><div class="tname">भारत के प्रमुख लोकनृत्य</div><div class="tsub">भरतनाट्यम (TN), कथकली (Kerala), कुचिपुड़ी (AP), ओडिसी (Odisha)</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="math">
+        <span class="trank">91</span>
+        <div class="tinfo"><div class="tname">औसत (Average)</div><div class="tsub">Mean = Sum/Count, Weighted Average, औसत गति</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="polity">
+        <span class="trank">92</span>
+        <div class="tinfo"><div class="tname">42वां संविधान संशोधन</div><div class="tsub">1976, मिनी संविधान, Preamble में समाजवादी-धर्मनिरपेक्ष जोड़ा</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t upsc">UPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="mpgk">
+        <span class="trank">93</span>
+        <div class="tinfo"><div class="tname">MP का भोपाल गैस कांड</div><div class="tsub">1984, Union Carbide, MIC गैस, विश्व की सबसे बड़ी औद्योगिक दुर्घटना</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">94</span>
+        <div class="tname">मानव रोग – बैक्टीरिया vs वायरस</div>
+        <div class="tsub">TB, हैजा (Bacteria) | COVID, पोलियो, डेंगू (Virus)</div>
+        <div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t ssc">SSC GD</span></div>
+      </div>
+
+      <div class="tcard" data-cat="reasoning">
+        <span class="trank">95</span>
+        <div class="tinfo"><div class="tname">सादृश्यता (Analogy)</div><div class="tsub">शब्द, संख्या, अक्षर आधारित – Odd One Out</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="hindi">
+        <span class="trank">96</span>
+        <div class="tinfo"><div class="tname">तत्सम और तद्भव शब्द</div><div class="tsub">संस्कृत मूल (तत्सम) से बदले हिंदी शब्द (तद्भव)</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t asi">ASI</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="geo">
+        <span class="trank">97</span>
+        <div class="tinfo"><div class="tname">भारत की जनसंख्या वितरण</div><div class="tsub">सर्वाधिक जनसंख्या वाले राज्य, घनत्व, शहरीकरण</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="mpgk">
+        <span class="trank">98</span>
+        <div class="tinfo"><div class="tname">MP के प्रमुख मेले</div><div class="tsub">सिंहस्थ (उज्जैन), पचमढ़ी उत्सव, ओरछा महोत्सव</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="polity">
+        <span class="trank">99</span>
+        <div class="tinfo"><div class="tname">भारत के CAG, CBI, CVC</div><div class="tsub">नियंत्रक महालेखापरीक्षक, CBI, केंद्रीय सतर्कता आयोग</div><div class="tmeta"><span class="stars s3">⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+      <div class="tcard" data-cat="science">
+        <span class="trank">100</span>
+        <div class="tinfo"><div class="tname">अंतरिक्ष अनुसंधान – ISRO</div><div class="tsub">Chandrayaan, Mangalyaan, PSLV, GSLV, Gaganyaan</div><div class="tmeta"><span class="stars s4">⭐⭐⭐⭐</span><span class="t si">SI</span><span class="t mppsc">MPPSC</span></div></div>
+      </div>
+
+    </div><!-- end 61-100 -->
+  </div>
+</section>
+
+<!-- ===== STUDY STRATEGY SECTION ===== -->
+<section id="strategy">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-tag">STUDY PLAN</span>
+      <h2>🎯 परीक्षा तैयारी रणनीति</h2>
+      <p>Beginner से Advanced तक – 90 दिन का Complete Study Plan</p>
+    </div>
+
+    <!-- Strategy Tabs -->
+    <div class="strategy-tabs">
+      <button class="stab active" onclick="showTab('phase')">📅 3 Phase Plan</button>
+      <button class="stab" onclick="showTab('priority')">⭐ Subject Priority</button>
+      <button class="stab" onclick="showTab('schedule')">🕐 Daily Schedule</button>
+      <button class="stab" onclick="showTab('tips')">💡 Expert Tips</button>
+    </div>
+
+    <!-- TAB: 3 Phase Plan -->
+    <div class="tab-content active" id="tab-phase">
+      <div class="phase-grid">
+        <div class="phase-card">
+          <div class="phase-num">01</div>
+          <div class="phase-icon">📚</div>
+          <h3>Foundation Phase</h3>
+          <p>NCERT आधार, बुनियादी अवधारणाएं समझें। सभी 13 विषयों का एक बार overview करें। Short notes बनाना शुरू करें।</p>
+          <span class="phase-dur">⏱️ पहले 30 दिन</span>
+          <div style="margin-top:14px;">
+            <div class="hbox">
+              <ul>
+                <li>NCERT 6-10 की Books पढ़ें</li>
+                <li>MP GK की Basic जानकारी</li>
+                <li>Reasoning के आसान topics</li>
+                <li>Mathematics के formulas याद करें</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">02</div>
+          <div class="phase-icon">🔍</div>
+          <h3>Intermediate Phase</h3>
+          <p>विस्तृत अध्ययन, नोट्स बनाएं। Previous Year Questions हल करें। Mock Tests देना शुरू करें।</p>
+          <span class="phase-dur">⏱️ अगले 45 दिन</span>
+          <div style="margin-top:14px;">
+            <div class="hbox">
+              <ul>
+                <li>Subject-wise deep study</li>
+                <li>पिछले 5 साल के प्रश्नपत्र</li>
+                <li>MP GK का विस्तृत अध्ययन</li>
+                <li>Weekly Mock Test</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">03</div>
+          <div class="phase-icon">⚡</div>
+          <h3>Advanced Phase</h3>
+          <p>Revision, Full Mock Tests, कमजोर विषय सुधारें। Current Affairs update करें। Speed और Accuracy बढ़ाएं।</p>
+          <span class="phase-dur">⏱️ अंतिम 15 दिन</span>
+          <div style="margin-top:14px;">
+            <div class="hbox">
+              <ul>
+                <li>रोज 1 Full Mock Test</li>
+                <li>Weak Areas पर Focus</li>
+                <li>Current Affairs Revision</li>
+                <li>Top 100 Topics Quick Revision</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: Subject Priority -->
+    <div class="tab-content" id="tab-priority">
+      <div class="hbox" style="margin-bottom:24px;">
+        <h4>📊 Subject Priority Table – MP Police SI</h4>
+        <p>इस तालिका के अनुसार विषयों को प्राथमिकता दें। उच्च प्राथमिकता वाले विषयों पर सर्वाधिक समय दें।</p>
+      </div>
+      <div style="overflow-x:auto;border-radius:12px;border:var(--border);">
+        <table class="priority-table">
+          <tr><th>विषय</th><th>प्रश्न (SI)</th><th>प्राथमिकता</th><th>Study Time</th><th>Key Topics</th></tr>
+          <tr><td>MP सामान्य ज्ञान</td><td>30</td><td><span class="pri h">🔴 उच्च</span></td><td>25 दिन</td><td>जिले, नदियां, उद्यान, प्रतीक</td></tr>
+          <tr><td>हिंदी व्याकरण</td><td>30</td><td><span class="pri h">🔴 उच्च</span></td><td>20 दिन</td><td>संधि, समास, अलंकार, मुहावरे</td></tr>
+          <tr><td>गणित</td><td>30</td><td><span class="pri h">🔴 उच्च</span></td><td>20 दिन</td><td>SI/CI, % , समय-कार्य, क्षेत्रफल</td></tr>
+          <tr><td>तर्कशक्ति</td><td>30</td><td><span class="pri h">🔴 उच्च</span></td><td>20 दिन</td><td>Series, Coding, Direction, Puzzle</td></tr>
+          <tr><td>सामान्य ज्ञान</td><td>40</td><td><span class="pri m">🟡 मध्यम</span></td><td>30 दिन</td><td>History, Polity, Geography, Eco</td></tr>
+          <tr><td>सामान्य विज्ञान</td><td>20</td><td><span class="pri m">🟡 मध्यम</span></td><td>15 दिन</td><td>Physics, Chemistry, Biology</td></tr>
+          <tr><td>अंग्रेजी</td><td>20</td><td><span class="pri l">🟢 सामान्य</span></td><td>10 दिन</td><td>Grammar, Vocabulary, Comprehension</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB: Daily Schedule -->
+    <div class="tab-content" id="tab-schedule">
+      <div class="hbox" style="margin-bottom:24px;">
+        <h4>🕐 Ideal Daily Study Schedule (8 घंटे)</h4>
+        <p>यह schedule follow करके आप 90 दिनों में complete syllabus cover कर सकते हैं।</p>
+      </div>
+      <div class="schedule">
+        <div class="sch-row head">
+          <div class="sc">समय</div>
+          <div class="sc">गतिविधि</div>
+          <div class="sc">अवधि</div>
+          <div class="sc">विषय</div>
+        </div>
+        <div class="sch-row"><div class="sc">5:00–6:00 AM</div><div class="sc">🌅 Morning Revision – रात को पढ़ा हुआ दोहराएं</div><div class="sc">1 घंटा</div><div class="sc">कोई भी</div></div>
+        <div class="sch-row"><div class="sc">6:00–8:00 AM</div><div class="sc">📐 Mathematics – Formulas + Practice</div><div class="sc">2 घंटे</div><div class="sc">गणित</div></div>
+        <div class="sch-row"><div class="sc">9:00–11:00 AM</div><div class="sc">📖 Hindi Grammar + Reasoning</div><div class="sc">2 घंटे</div><div class="sc">हिंदी/तर्क</div></div>
+        <div class="sch-row"><div class="sc">11:30–1:00 PM</div><div class="sc">🗺️ MP GK – जिले, नदियां, उद्यान</div><div class="sc">1.5 घंटे</div><div class="sc">MP GK</div></div>
+        <div class="sch-row"><div class="sc">2:00–4:00 PM</div><div class="sc">📚 GK (History/Polity/Geography)</div><div class="sc">2 घंटे</div><div class="sc">सामान्य ज्ञान</div></div>
+        <div class="sch-row"><div class="sc">4:30–5:30 PM</div><div class="sc">🔬 Science + Current Affairs</div><div class="sc">1 घंटा</div><div class="sc">विज्ञान</div></div>
+        <div class="sch-row"><div class="sc">8:00–9:00 PM</div><div class="sc">📝 Mock Test / Previous Year Questions</div><div class="sc">1 घंटा</div><div class="sc">Practice</div></div>
+        <div class="sch-row"><div class="sc">9:00–10:00 PM</div><div class="sc">✏️ Notes बनाएं + कल का Plan</div><div class="sc">1 घंटा</div><div class="sc">Revision</div></div>
+      </div>
+    </div>
+
+    <!-- TAB: Expert Tips -->
+    <div class="tab-content" id="tab-tips">
+      <div class="phase-grid">
+        <div class="phase-card">
+          <div class="phase-icon">📝</div>
+          <h3>Short Notes बनाएं</h3>
+          <p>हर topic के लिए अपने हाथ से short notes बनाएं। यह revision में बहुत उपयोगी होता है। MP GK के लिए charts बनाएं।</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-icon">🎯</div>
+          <h3>Previous Year Papers</h3>
+          <p>पिछले 5-10 साल के question papers जरूर हल करें। इससे exam pattern और frequently asked topics का पता चलता है।</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-icon">⏰</div>
+          <h3>Time Management</h3>
+          <p>200 प्रश्न = 120 मिनट, यानी प्रति प्रश्न 36 seconds। कठिन प्रश्न छोड़ें और आसान पहले हल करें।</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-icon">🔄</div>
+          <h3>Regular Revision</h3>
+          <p>Forgetting Curve से बचने के लिए: 1 दिन बाद, 7 दिन बाद, 30 दिन बाद revision जरूर करें।</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-icon">📱</div>
+          <h3>Current Affairs Daily</h3>
+          <p>रोज 30 मिनट newspaper या news app पढ़ें। MP के समाचारों पर विशेष ध्यान दें। Monthly current affairs PDF बनाएं।</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-icon">💪</div>
+          <h3>Physical Preparation</h3>
+          <p>लिखित परीक्षा के साथ-साथ Physical Test की भी तैयारी करें। रोज दौड़ और व्यायाम करें।</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CONTACT SECTION ===== -->
+<section id="contact" style="padding:90px 0;background:var(--b2);">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-tag">GET IN TOUCH</span>
+      <h2>📞 संपर्क करें</h2>
+      <p>कोई भी प्रश्न हो तो हमसे संपर्क करें</p>
+    </div>
+
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <h3>हमसे संपर्क करें</h3>
+        <p>MP Police SI/ASI परीक्षा से संबंधित किसी भी विषय पर जानकारी के लिए संपर्क करें। हम आपकी सहायता करने के लिए तैयार हैं।</p>
+        <div class="cinfo-list">
+          <div class="ci">
+            <span>📧</span>
+            <div><b>Email</b><p>info@mppoliceexam.in</p></div>
+          </div>
+          <div class="ci">
+            <span>📱</span>
+            <div><b>WhatsApp Group</b><p>Study Group Join करें</p></div>
+          </div>
+          <div class="ci">
+            <span>🌐</span>
+            <div><b>Official MP Police</b><p>mppolice.gov.in</p></div>
+          </div>
+          <div class="ci">
+            <span>📋</span>
+            <div><b>VYAPAM / MPPEB</b><p>peb.mp.gov.in</p></div>
+          </div>
+          <div class="ci">
+            <span>⏰</span>
+            <div><b>Study Hours</b><p>सोम–शनि: सुबह 6 बजे से रात 10 बजे</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cform">
+        <h3>✉️ Message भेजें</h3>
+        <div class="fgroup">
+          <label>आपका नाम *</label>
+          <input type="text" placeholder="अपना पूरा नाम लिखें">
+        </div>
+        <div class="fgroup">
+          <label>Email / WhatsApp *</label>
+          <input type="text" placeholder="Email या WhatsApp नंबर">
+        </div>
+        <div class="fgroup">
+          <label>परीक्षा *</label>
+          <select>
+            <option>परीक्षा चुनें</option>
+            <option>MP Police SI</option>
+            <option>MP Police ASI</option>
+            <option>MPPSC</option>
+            <option>SSC GD</option>
+          </select>
+        </div>
+        <div class="fgroup">
+          <label>विषय / प्रश्न *</label>
+          <textarea placeholder="अपना प्रश्न या सुझाव लिखें..."></textarea>
+        </div>
+        <button class="btn-gold" style="width:100%;justify-content:center;" onclick="sendMsg()">
+          📤 Message भेजें
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="flogo">🛡️ MP POLICE EXAM PORTAL</div>
+        <p>मध्यप्रदेश पुलिस SI/ASI परीक्षा की सम्पूर्ण तैयारी के लिए आपका विश्वसनीय अध्ययन पोर्टल। सभी 13 विषयों का A to Z पाठ्यक्रम और Top 100 Repeated Topics।</p>
+      </div>
+      <div class="flinks">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">🏠 होम</a></li>
+          <li><a href="#about">📋 परीक्षा जानकारी</a></li>
+          <li><a href="#syllabus">📚 पाठ्यक्रम</a></li>
+          <li><a href="#repeated">🔥 Top 100 Topics</a></li>
+          <li><a href="#strategy">🎯 रणनीति</a></li>
+        </ul>
+      </div>
+      <div class="flinks">
+        <h4>Subjects</h4>
+        <ul>
+          <li><a href="#syllabus">⚖️ Indian Polity</a></li>
+          <li><a href="#syllabus">🌍 Geography</a></li>
+          <li><a href="#syllabus">🗺️ MP GK</a></li>
+          <li><a href="#syllabus">🔬 General Science</a></li>
+          <li><a href="#syllabus">📐 Mathematics</a></li>
+        </ul>
+      </div>
+      <div class="flinks">
+        <h4>Important Links</h4>
+        <ul>
+          <li><a href="https://mppolice.gov.in" target="_blank">MP Police Official</a></li>
+          <li><a href="https://peb.mp.gov.in" target="_blank">MPPEB / VYAPAM</a></li>
+          <li><a href="https://mppsc.mp.gov.in" target="_blank">MPPSC Official</a></li>
+          <li><a href="#contact">📞 Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 MP Police SI/ASI Exam Portal | Designed for Educational Purpose Only</p>
+      <p>⚠️ Disclaimer: यह एक शैक्षणिक वेबसाइट है। VYAPAM / MPPEB / MP Police से कोई आधिकारिक संबंध नहीं।</p>
+    </div>
+  </div>
+</footer>
+<script>
+// ===================================================
+// MP POLICE SI/ASI EXAM PORTAL — COMPLETE JAVASCRIPT
+// ===================================================
+
+// ─────────────────────────────────────────
+// 1. NAVBAR — SCROLL EFFECT + HAMBURGER
+// ─────────────────────────────────────────
+window.addEventListener('scroll', function () {
+  var nb = document.getElementById('navbar');
+  if (nb) {
+    if (window.scrollY > 60) {
+      nb.classList.add('scrolled');
+    } else {
+      nb.classList.remove('scrolled');
+    }
+  }
+});
+
+var ham = document.getElementById('hamburger');
+var menu = document.getElementById('nav-menu');
+
+if (ham && menu) {
+  ham.addEventListener('click', function () {
+    menu.classList.toggle('open');
+    ham.classList.toggle('active');
+  });
+
+  // Close menu when any nav link clicked
+  var navLinks = menu.querySelectorAll('.nav-link');
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      menu.classList.remove('open');
+      ham.classList.remove('active');
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function (e) {
+    if (!ham.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.remove('open');
+      ham.classList.remove('active');
+    }
+  });
+}
+
+// ─────────────────────────────────────────
+// 2. ACTIVE NAV LINK ON SCROLL
+// ─────────────────────────────────────────
+window.addEventListener('scroll', function () {
+  var sections = ['home', 'about', 'syllabus', 'repeated', 'strategy', 'contact'];
+  var links = document.querySelectorAll('.nav-link');
+  var scrollPos = window.scrollY + 120;
+
+  sections.forEach(function (id) {
+    var sec = document.getElementById(id);
+    if (sec) {
+      if (sec.offsetTop <= scrollPos && sec.offsetTop + sec.offsetHeight > scrollPos) {
+        links.forEach(function (l) { l.classList.remove('active'); });
+        var active = document.querySelector('.nav-link[href="#' + id + '"]');
+        if (active) active.classList.add('active');
+      }
+    }
+  });
+});
+
+// ─────────────────────────────────────────
+// 3. SUBJECT CARD ACCORDION (TOGGLE)
+// ─────────────────────────────────────────
+function toggleSubject(id) {
+  var body = document.getElementById(id);
+  var arrow = document.getElementById('arr-' + id);
+
+  if (!body) return;
+
+  var isOpen = body.classList.contains('open');
+
+  // Close all first
+  var allBodies = document.querySelectorAll('.sc-body');
+  var allArrows = document.querySelectorAll('.sc-arrow');
+
+  allBodies.forEach(function (b) { b.classList.remove('open'); });
+  allArrows.forEach(function (a) { a.classList.remove('open'); });
+
+  // Open clicked one if it was closed
+  if (!isOpen) {
+    body.classList.add('open');
+    if (arrow) arrow.classList.add('open');
+
+    // Smooth scroll to card
+    setTimeout(function () {
+      body.closest('.subj-card').scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest'
+      });
+    }, 100);
+  }
+}
+
+// ─────────────────────────────────────────
+// 4. STRATEGY TABS
+// ─────────────────────────────────────────
+function showTab(name) {
+  // Hide all tab contents
+  var allTabs = document.querySelectorAll('.tab-content');
+  allTabs.forEach(function (t) { t.classList.remove('active'); });
+
+  // Remove active from all tab buttons
+  var allBtns = document.querySelectorAll('.stab');
+  allBtns.forEach(function (b) { b.classList.remove('active'); });
+
+  // Show selected tab
+  var target = document.getElementById('tab-' + name);
+  if (target) target.classList.add('active');
+
+  // Mark clicked button active
+  event.target.classList.add('active');
+}
+
+// ─────────────────────────────────────────
+// 5. TOP 100 TOPICS FILTER
+// ─────────────────────────────────────────
+function filterTopics(cat, btn) {
+  // Update button states
+  var allBtns = document.querySelectorAll('.fbtn');
+  allBtns.forEach(function (b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+
+  // Filter cards
+  var allCards = document.querySelectorAll('.tcard');
+  var count = 0;
+
+  allCards.forEach(function (card) {
+    if (cat === 'all') {
+      card.style.display = 'flex';
+      card.style.animation = 'fadeIn 0.3s ease';
+      count++;
+    } else {
+      if (card.getAttribute('data-cat') === cat) {
+        card.style.display = 'flex';
+        card.style.animation = 'fadeIn 0.3s ease';
+        count++;
+      } else {
+        card.style.display = 'none';
+      }
+    }
+  });
+
+  // Hide empty rank dividers
+  var dividers = document.querySelectorAll('.rank-div');
+  dividers.forEach(function (div) {
+    if (cat !== 'all') {
+      div.style.display = 'none';
+    } else {
+      div.style.display = 'flex';
+    }
+  });
+
+  // Show count message
+  showFilterMsg(count, cat);
+}
+
+function showFilterMsg(count, cat) {
+  var existing = document.getElementById('filter-msg');
+  if (existing) existing.remove();
+
+  if (cat !== 'all') {
+    var container = document.getElementById('topics-container');
+    if (container) {
+      var msg = document.createElement('div');
+      msg.id = 'filter-msg';
+      msg.style.cssText = [
+        'grid-column: 1 / -1',
+        'text-align: center',
+        'padding: 12px 20px',
+        'background: rgba(201,168,76,0.08)',
+        'border: 1px solid rgba(201,168,76,0.25)',
+        'border-radius: 10px',
+        'font-family: Noto Sans Devanagari, sans-serif',
+        'font-size: 13px',
+        'color: #C9A84C'
+      ].join(';');
+      msg.innerHTML = '🔍 ' + count + ' टॉपिक मिले इस category में';
+      container.prepend(msg);
+    }
+  }
+}
+
+// ─────────────────────────────────────────
+// 6. CONTACT FORM SUBMIT
+// ─────────────────────────────────────────
+function sendMsg() {
+  var inputs = document.querySelectorAll('.cform input, .cform textarea, .cform select');
+  var allFilled = true;
+
+  inputs.forEach(function (inp) {
+    if (!inp.value || inp.value === 'परीक्षा चुनें') {
+      inp.style.borderColor = '#e57373';
+      inp.style.boxShadow = '0 0 0 3px rgba(229,115,115,0.15)';
+      allFilled = false;
+    } else {
+      inp.style.borderColor = 'rgba(201,168,76,0.2)';
+      inp.style.boxShadow = 'none';
+    }
+  });
+
+  if (!allFilled) {
+    showToast('⚠️ कृपया सभी fields भरें!', 'warn');
+    return;
+  }
+
+  // Success
+  showToast('✅ आपका message भेज दिया गया! हम जल्द संपर्क करेंगे।', 'success');
+
+  // Clear form
+  inputs.forEach(function (inp) {
+    inp.value = '';
+    inp.style.borderColor = 'rgba(201,168,76,0.2)';
+  });
+}
+
+// ─────────────────────────────────────────
+// 7. TOAST NOTIFICATION
+// ─────────────────────────────────────────
+function showToast(msg, type) {
+  // Remove existing toast
+  var old = document.getElementById('toast');
+  if (old) old.remove();
+
+  var toast = document.createElement('div');
+  toast.id = 'toast';
+
+  var bg = type === 'success'
+    ? 'linear-gradient(135deg,#1a3a1a,#1e4a1e)'
+    : 'linear-gradient(135deg,#3a1a1a,#4a1e1e)';
+
+  var border = type === 'success'
+    ? 'rgba(93,189,122,0.4)'
+    : 'rgba(229,115,115,0.4)';
+
+  toast.style.cssText = [
+    'position: fixed',
+    'bottom: 30px',
+    'right: 30px',
+    'z-index: 9999',
+    'background: ' + bg,
+    'border: 1px solid ' + border,
+    'border-radius: 12px',
+    'padding: 16px 24px',
+    'font-family: Noto Sans Devanagari, sans-serif',
+    'font-size: 14px',
+    'color: #f5f0e8',
+    'max-width: 340px',
+    'box-shadow: 0 8px 32px rgba(0,0,0,0.5)',
+    'animation: slideIn 0.4s ease',
+    'line-height: 1.5'
+  ].join(';');
+
+  toast.innerHTML = msg;
+  document.body.appendChild(toast);
+
+  // Auto remove after 4 seconds
+  setTimeout(function () {
+    toast.style.animation = 'slideOut 0.4s ease forwards';
+    setTimeout(function () {
+      if (toast.parentNode) toast.remove();
+    }, 400);
+  }, 4000);
+}
+
+// Toast animations
+var toastStyle = document.createElement('style');
+toastStyle.textContent = [
+  '@keyframes slideIn {',
+  '  from { opacity:0; transform:translateX(60px); }',
+  '  to   { opacity:1; transform:translateX(0); }',
+  '}',
+  '@keyframes slideOut {',
+  '  from { opacity:1; transform:translateX(0); }',
+  '  to   { opacity:0; transform:translateX(60px); }',
+  '}'
+].join('');
+document.head.appendChild(toastStyle);
+
+// ─────────────────────────────────────────
+// 8. SMOOTH SCROLL FOR ALL # LINKS
+// ─────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+  anchor.addEventListener('click', function (e) {
+    var href = this.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    var target = document.querySelector(href);
+    if (target) {
+      var offset = 80; // navbar height
+      var top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+  });
+});
+
+// ─────────────────────────────────────────
+// 9. ANIMATE ELEMENTS ON SCROLL
+// ─────────────────────────────────────────
+var animStyle = document.createElement('style');
+animStyle.textContent = [
+  '.anim-hidden {',
+  '  opacity: 0;',
+  '  transform: translateY(24px);',
+  '  transition: opacity 0.55s ease, transform 0.55s ease;',
+  '}',
+  '.anim-visible {',
+  '  opacity: 1 !important;',
+  '  transform: translateY(0) !important;',
+  '}'
+].join('');
+document.head.appendChild(animStyle);
+
+// Apply hidden class to animatable elements
+var animTargets = document.querySelectorAll(
+  '.subj-card, .tcard, .phase-card, .about-card, .bitem, .step, .ci'
+);
+
+animTargets.forEach(function (el) {
+  el.classList.add('anim-hidden');
+});
+
+// Intersection Observer
+if ('IntersectionObserver' in window) {
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('anim-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+  animTargets.forEach(function (el) {
+    observer.observe(el);
+  });
+}
+
+// ─────────────────────────────────────────
+// 10. STAGGERED ANIMATION FOR GRIDS
+// ─────────────────────────────────────────
+var gridObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      var children = entry.target.querySelectorAll(
+        '.subj-card, .tcard, .phase-card, .about-card'
+      );
+      children.forEach(function (child, i) {
+        setTimeout(function () {
+          child.classList.add('anim-visible');
+        }, i * 60);
+      });
+      gridObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.05 });
+
+var grids = document.querySelectorAll(
+  '.subjects-grid, .top100-grid, .phase-grid, .about-grid'
+);
+grids.forEach(function (g) { gridObserver.observe(g); });
+
+// ─────────────────────────────────────────
+// 11. COUNTER ANIMATION (HERO STATS)
+// ─────────────────────────────────────────
+function animateCounter(el, target, suffix) {
+  var start = 0;
+  var duration = 1800;
+  var step = target / (duration / 16);
+
+  var timer = setInterval(function () {
+    start += step;
+    if (start >= target) {
+      el.textContent = target + (suffix || '');
+      clearInterval(timer);
+    } else {
+      el.textContent = Math.floor(start) + (suffix || '');
+    }
+  }, 16);
+}
+
+var heroObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      var counters = [
+        { el: null, target: 13, suffix: '' },
+        { el: null, target: 100, suffix: '+' },
+        { el: null, target: 500, suffix: '+' },
+        { el: null, target: 5, suffix: '' }
+      ];
+      var sns = document.querySelectorAll('.sn');
+      sns.forEach(function (el, i) {
+        if (counters[i]) {
+          animateCounter(el, counters[i].target, counters[i].suffix);
+        }
+      });
+      heroObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+var heroStats = document.querySelector('.hero-stats');
+if (heroStats) heroObserver.observe(heroStats);
+
+// ─────────────────────────────────────────
+// 12. SCROLL TO TOP BUTTON
+// ─────────────────────────────────────────
+var topBtn = document.createElement('button');
+topBtn.id = 'topBtn';
+topBtn.innerHTML = '▲';
+topBtn.title = 'ऊपर जाएं';
+topBtn.style.cssText = [
+  'position: fixed',
+  'bottom: 30px',
+  'left: 30px',
+  'z-index: 999',
+  'width: 44px',
+  'height: 44px',
+  'border-radius: 50%',
+  'background: linear-gradient(135deg,#A07830,#C9A84C)',
+  'color: #0a0a0a',
+  'border: none',
+  'font-size: 16px',
+  'font-weight: 700',
+  'cursor: pointer',
+  'display: none',
+  'align-items: center',
+  'justify-content: center',
+  'box-shadow: 0 4px 16px rgba(201,168,76,0.4)',
+  'transition: all 0.3s ease'
+].join(';');
+
+document.body.appendChild(topBtn);
+
+window.addEventListener('scroll', function () {
+  if (window.scrollY > 400) {
+    topBtn.style.display = 'flex';
+  } else {
+    topBtn.style.display = 'none';
+  }
+});
+
+topBtn.addEventListener('click', function () {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+topBtn.addEventListener('mouseenter', function () {
+  this.style.transform = 'scale(1.1)';
+  this.style.boxShadow = '0 6px 24px rgba(201,168,76,0.6)';
+});
+topBtn.addEventListener('mouseleave', function () {
+  this.style.transform = 'scale(1)';
+  this.style.boxShadow = '0 4px 16px rgba(201,168,76,0.4)';
+});
+
+// ─────────────────────────────────────────
+// 13. SUBJECT SEARCH / HIGHLIGHT
+// ─────────────────────────────────────────
+var searchBar = document.createElement('div');
+searchBar.style.cssText = [
+  'position: fixed',
+  'top: 80px',
+  'right: 20px',
+  'z-index: 900',
+  'display: flex',
+  'gap: 0'
+].join(';');
+
+var searchInput = document.createElement('input');
+searchInput.placeholder = '🔍 Topic खोजें...';
+searchInput.id = 'searchBox';
+searchInput.style.cssText = [
+  'background: rgba(10,10,10,0.95)',
+  'border: 1px solid rgba(201,168,76,0.3)',
+  'border-right: none',
+  'border-radius: 8px 0 0 8px',
+  'padding: 8px 14px',
+  'color: #f5f0e8',
+  'font-family: Noto Sans Devanagari, sans-serif',
+  'font-size: 12px',
+  'width: 0',
+  'opacity: 0',
+  'transition: all 0.4s ease',
+  'outline: none'
+].join(';');
+
+var searchToggle = document.createElement('button');
+searchToggle.innerHTML = '🔍';
+searchToggle.style.cssText = [
+  'background: rgba(201,168,76,0.15)',
+  'border: 1px solid rgba(201,168,76,0.3)',
+  'border-radius: 0 8px 8px 0',
+  'padding: 8px 12px',
+  'color: #C9A84C',
+  'cursor: pointer',
+  'font-size: 14px',
+  'transition: all 0.3s ease'
+].join(';');
+
+var searchOpen = false;
+
+searchToggle.addEventListener('click', function () {
+  searchOpen = !searchOpen;
+  if (searchOpen) {
+    searchInput.style.width = '200px';
+    searchInput.style.opacity = '1';
+    searchInput.focus();
+    searchToggle.style.borderRadius = '0 8px 8px 0';
+  } else {
+    searchInput.style.width = '0';
+    searchInput.style.opacity = '0';
+    searchInput.value = '';
+    clearHighlights();
+  }
+});
+
+searchInput.addEventListener('input', function () {
+  var query = this.value.toLowerCase().trim();
+  clearHighlights();
+  if (query.length < 2) return;
+  highlightMatches(query);
+});
+
+function highlightMatches(q) {
+  var items = document.querySelectorAll('.ti-head, .tname, .topic-item');
+  var found = false;
+
+  items.forEach(function (item) {
+    var text = item.textContent.toLowerCase();
+    if (text.includes(q)) {
+      item.style.background = 'rgba(201,168,76,0.12)';
+      item.style.borderColor = 'rgba(201,168,76,0.4)';
+      item.style.borderRadius = '6px';
+      item.style.transition = 'all 0.3s';
+
+      if (!found) {
+        // Open parent accordion
+        var card = item.closest('.sc-body');
+        if (card && !card.classList.contains('open')) {
+          var cardId = card.id;
+          if (cardId) toggleSubject(cardId);
+        }
+        // Scroll to first match
+        setTimeout(function () {
+          item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 200);
+        found = true;
+      }
+    }
+  });
+
+  if (!found && q.length > 2) {
+    showToast('🔍 "' + q + '" नहीं मिला। दूसरे शब्द आज़माएं।', 'warn');
+  }
+}
+
+function clearHighlights() {
+  var items = document.querySelectorAll('.ti-head, .tname, .topic-item');
+  items.forEach(function (item) {
+    item.style.background = '';
+    item.style.borderColor = '';
+  });
+}
+
+searchBar.appendChild(searchInput);
+searchBar.appendChild(searchToggle);
+document.body.appendChild(searchBar);
+
+// ─────────────────────────────────────────
+// 14. KEYBOARD SHORTCUT: ESC closes menus
+// ─────────────────────────────────────────
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    if (menu) {
+      menu.classList.remove('open');
+    }
+    if (searchOpen) {
+      searchOpen = false;
+      searchInput.style.width = '0';
+      searchInput.style.opacity = '0';
+      searchInput.value = '';
+      clearHighlights();
+    }
+    // Close all subject accordions
+    document.querySelectorAll('.sc-body').forEach(function (b) {
+      b.classList.remove('open');
+    });
+    document.querySelectorAll('.sc-arrow').forEach(function (a) {
+      a.classList.remove('open');
+    });
+  }
+});
+
+// ─────────────────────────────────────────
+// 15. PAGE LOAD — WELCOME MESSAGE
+// ─────────────────────────────────────────
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    showToast('🎯 MP Police SI/ASI Portal में आपका स्वागत है!', 'success');
+  }, 1500);
+
+  // Open first subject card by default
+  setTimeout(function () {
+    var firstBody = document.getElementById('polity');
+    var firstArrow = document.getElementById('arr-polity');
+    if (firstBody && !firstBody.classList.contains('open')) {
+      firstBody.classList.add('open');
+      if (firstArrow) firstArrow.classList.add('open');
+    }
+  }, 800);
+});
+
+// ─────────────────────────────────────────
+// 16. PROGRESS BAR — TOP OF PAGE
+// ─────────────────────────────────────────
+var progressBar = document.createElement('div');
+progressBar.style.cssText = [
+  'position: fixed',
+  'top: 0',
+  'left: 0',
+  'height: 3px',
+  'width: 0%',
+  'background: linear-gradient(90deg,#A07830,#C9A84C,#E8C97A)',
+  'z-index: 9999',
+  'transition: width 0.1s linear',
+  'border-radius: 0 2px 2px 0'
+].join(';');
+document.body.appendChild(progressBar);
+
+window.addEventListener('scroll', function () {
+  var scrollTop = window.scrollY;
+  var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  progressBar.style.width = pct + '%';
+});
+
+</script>
+</body>
+</html>
